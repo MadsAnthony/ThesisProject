@@ -60,9 +60,9 @@ namespace PacmanAINeural
         {
             if (useSUPG)
             {
-                supgOutputs = new float[network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount), wavelength]; // need at least as many rows as the number of hidden neurons
+                supgOutputs = new float[network.TotalNeuronCount /*- (network.InputNeuronCount + network.OutputNeuronCount)*/, wavelength]; // need at least as many rows as the number of hidden neurons
                 // set all supgOutputs to min value to signal they have not been cached yet
-                for (int i = 0; i < network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount); i++)
+                for (int i = 0; i < network.TotalNeuronCount /*- (network.InputNeuronCount + network.OutputNeuronCount)*/; i++)
                     for (int j = 0; j < wavelength; j++)
                         supgOutputs[i, j] = float.MinValue;
             }
@@ -160,11 +160,11 @@ namespace PacmanAINeural
                         }*/
                         if (neuron.InnovationId == 7)
                         {
-                            overrideSignals[neuron.InnovationId] = 0.7f;// dummySUPGActivation(neuron);
+                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron,10);//0.7f;// dummySUPGActivation(neuron);
                         }
                         if (neuron.InnovationId == 8)
                         {
-                            overrideSignals[neuron.InnovationId] = 0.3f;// dummySUPGActivation(neuron);
+                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron,10);//0.3f;// dummySUPGActivation(neuron);
                         }
                     }
                     ((FloatFastConcurrentNetwork)network).OverrideSignals = overrideSignals;
@@ -176,6 +176,47 @@ namespace PacmanAINeural
                 network.MultipleSteps(iterations);
 
             }
+        }
+
+        private float getSUPGActivation(NeuronGene neuron, int cppnIterations)
+        {
+            float activation = 0;
+            int offset = 0; // network.InputNeuronCount + network.OutputNeuronCount; // assume that SUPGs are placed at front of hidden neurons
+            // if the element is float.min, then we have not yet cached the SUPG output
+            if (supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter] == float.MinValue)
+            {
+                double[] coordinates = new double[3];
+
+
+                coordinates[0] = (float)neuron.XValue;
+                coordinates[1] = (float)neuron.YValue;
+
+
+                coordinates[0] = coordinates[0] / compression;
+
+                coordinates[2] = (float)neuron.TimeCounter / wavelength;
+
+                cppn.ClearSignals();
+                cppn.SetInputSignals(coordinates);
+                cppn.MultipleSteps(cppnIterations);
+
+                if (neuron.FirstStepComplete)
+                {
+                    activation = cppn.GetOutputSignal(0);
+                    supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter] = activation;  // only cache the output if the first step is complete
+                }
+                else
+                    activation = cppn.GetOutputSignal(0);
+
+            }
+            else
+            {
+                // get the cached value
+                activation = supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter];
+            }
+
+            //Console.WriteLine(activation);
+            return activation;
         }
 
         float dummySUPGActivation(NeuronGene neuron)

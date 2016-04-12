@@ -47,7 +47,7 @@ namespace SharpNeat.Experiments
                 System.Windows.Forms.Application.Run(myForm);
             });
             extraWindowThread.Start();
-            IExperiment exp = new PacmanExperimentSUPG(4, 12, 12, 5, 2);
+            IExperiment exp = new PacmanExperimentSUPG(4, 12, 12, 4, 2);
             StreamWriter SW;
             SW = File.CreateText("logfile.txt");
             //Change this line for different experiments

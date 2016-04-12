@@ -27,7 +27,7 @@ namespace SharpNeatLib.Experiments
                 if (g.EvaluationCount != 0)
                     continue;
 
-                INetwork network = g.Decode(null);
+                INetwork network = g.Decode(activationFn);
                 if (network == null)
                 {	// Future genomes may not decode - handle the possibility.
                     g.Fitness = EvolutionAlgorithm.MIN_GENOME_FITNESS;

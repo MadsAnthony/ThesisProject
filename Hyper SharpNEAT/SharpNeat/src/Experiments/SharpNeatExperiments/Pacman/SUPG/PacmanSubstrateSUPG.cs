@@ -100,13 +100,13 @@ class PacmanSubstrateSUPG : Substrate
 
     double getActivation(INetwork network, uint neuron1id, uint neuron2id, NeuronGeneList newNeurons) {
         network.ClearSignals();
-        network.SetInputSignal(0, 1);
-        network.SetInputSignal(1, newNeurons[(int)neuron1id].XValue);
-        network.SetInputSignal(2, newNeurons[(int)neuron1id].YValue);
-        network.SetInputSignal(3, newNeurons[(int)neuron2id].XValue);
-        network.SetInputSignal(4, newNeurons[(int)neuron2id].YValue);
+        //network.SetInputSignal(0, 1);
+        network.SetInputSignal(0, newNeurons[(int)neuron1id].XValue);
+        network.SetInputSignal(1, newNeurons[(int)neuron1id].YValue);
+        network.SetInputSignal(2, newNeurons[(int)neuron2id].XValue);
+        network.SetInputSignal(3, newNeurons[(int)neuron2id].YValue);
         network.MultipleSteps(10);
-        return network.GetOutputSignal(0);
+        return network.GetOutputSignal(1);
     }
 
     private float getXPos(uint index, bool isOutput)
