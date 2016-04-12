@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9828EED-D730-40BF-9A1C-7C3D947E7689}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>SharpNeatExperiments</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SharpNeatExperiments</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\PacmanCSharp\Pacman\PacmanAI\PacmanAI.csproj">
+      <Project>{0AD453A1-AF3C-4E0A-98A7-84420CB5B00B}</Project>
+      <Name>PacmanAI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PacmanCSharp\Pacman\Simulator\Simulator.csproj">
+      <Project>{EAAF301D-057D-4E37-954B-F762FECCD3F3}</Project>
+      <Name>Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharpNeatLib\SharpNeatLib.csproj">
+      <Name>SharpNeatLib</Name>
+      <Project>{3A64602B-C5E0-4CB7-99B0-1FC6ABB4449A}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FoodGathering\Agent.cs" />
+    <Compile Include="FoodGathering\Board.cs" />
+    <Compile Include="Pacman\SimplePacmanEnemyController.cs" />
+    <Compile Include="Pacman\SimplePacman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacman\SimplePacman.Designer.cs">
+      <DependentUpon>SimplePacman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacman\MyForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacman\MyForm1.Designer.cs">
+      <DependentUpon>MyForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacman\MyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacman\SimplePacmanController.cs" />
+    <Compile Include="Pacman\SUPG\NeuralPacmanSUPG.cs" />
+    <Compile Include="Pacman\SUPG\PacmanSubstrateSUPG.cs" />
+    <Compile Include="Pacman\SUPG\PacmanExperimentSUPG.cs" />
+    <Compile Include="Pacman\SUPG\PacmanNetworkEvaluatorSUPG.cs" />
+    <Compile Include="Pacman\SUPG\PacmanPopulationEvaluatorSUPG.cs" />
+    <Compile Include="Pacman\PacmanSubstrate.cs" />
+    <Compile Include="Pacman\PacmanExperiment.cs" />
+    <Compile Include="FoodGathering\Food.cs" />
+    <Compile Include="FoodGathering\FoodGathererSubstrate.cs" />
+    <Compile Include="FoodGathering\FoodGatherParams.cs" />
+    <Compile Include="FoodGathering\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodGathering\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodGathering\NetworkWiring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodGathering\NetworkWiring.designer.cs">
+      <DependentUpon>NetworkWiring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodGathering\Robot.cs" />
+    <Compile Include="FoodGathering\FoodGathererExperiment.cs" />
+    <Compile Include="FoodGathering\FoodGatherNetworkEvaluator.cs" />
+    <Compile Include="FoodGathering\FoodGatherPopulationEvaluator.cs" />
+    <Compile Include="FoodGathering\stats.cs" />
+    <Compile Include="FoodGathering\Utilites.cs" />
+    <Compile Include="HyperNEATParameters.cs" />
+    <Compile Include="Pacman\PacmanNetworkEvaluator.cs" />
+    <Compile Include="Pacman\PacmanPopulationEvaluator.cs" />
+    <Compile Include="Pacman\NeuralPacman.cs" />
+    <EmbeddedResource Include="FoodGathering\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodGathering\NetworkWiring.resx">
+      <DependentUpon>NetworkWiring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacman\MyForm1.resx">
+      <DependentUpon>MyForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacman\SimplePacman.resx">
+      <DependentUpon>SimplePacman.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
