@@ -1,0 +1,22 @@
+<genome id="317" species-id="0" age="1" fitness="106,00" objective-fitness="106,00">
+  <neurons>
+    <neuron id="0" type="bias" activationFunction="NullFn" />
+    <neuron id="1" type="in" activationFunction="NullFn" />
+    <neuron id="2" type="in" activationFunction="NullFn" />
+    <neuron id="3" type="in" activationFunction="NullFn" />
+    <neuron id="4" type="in" activationFunction="NullFn" />
+    <neuron id="5" type="in" activationFunction="NullFn" />
+    <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="40" type="hid" activationFunction="BipolarSigmoid" />
+  </neurons>
+  <connections>
+    <connection innov-id="15" src-id="1" tgt-id="7" weight="-0,73214796418324113" />
+    <connection innov-id="16" src-id="2" tgt-id="7" weight="-0,96724815526977181" />
+    <connection innov-id="17" src-id="3" tgt-id="7" weight="-0,93470925120636816" />
+    <connection innov-id="18" src-id="4" tgt-id="7" weight="0,866589973680675" />
+    <connection innov-id="41" src-id="5" tgt-id="40" weight="1" />
+    <connection innov-id="42" src-id="40" tgt-id="6" weight="-0,39235224388539791" />
+    <connection innov-id="251" src-id="7" tgt-id="6" weight="0,3784603918902576" />
+  </connections>
+</genome>

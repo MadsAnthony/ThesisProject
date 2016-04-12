@@ -39,7 +39,7 @@ namespace SharpNeatExperiments.Pacman
         public int returnEatScore;
         public int returnLifeScore;
 
-        bool fastNoDraw = true;
+        bool fastNoDraw = false;
         bool dontThink = false;
 
         public SimplePacman(PacmanAINeural.SimplePacmanController controller)
