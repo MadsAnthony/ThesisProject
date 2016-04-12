@@ -1,0 +1,10 @@
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\bin\x64\Debug\SharpNeatLib.dll
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\bin\x64\Debug\SharpNeatLib.pdb
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\ResolveAssemblyReference.cache
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\SharpNeatLib.Experiments.AbstractExperimentView.resources
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\SharpNeatLib.NetworkVisualization.NetworkControl.resources
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\SharpNeatLib.NetworkVisualization.Viewport.resources
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\ResGen.read.1.tlog
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\ResGen.write.1.tlog
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\SharpNeatLib.dll
+C:\Users\Greg\Desktop\various\school\OscillatorQuadruped\SharpNeatLib\obj\x64\Debug\SharpNeatLib.pdb

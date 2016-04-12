@@ -1,0 +1,17 @@
+bin\Debug\SharpNeatExperiments.dll
+bin\Debug\SharpNeatExperiments.pdb
+bin\Debug\SharpNeatLib.dll
+bin\Debug\SharpNeatLib.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SharpNeatLib.Experiments.Form1.resources
+obj\Debug\SharpNeatLib.Experiments.NetworkWiring.resources
+obj\Debug\SharpNeatExperiments.csproj.GenerateResource.Cache
+obj\Debug\SharpNeatExperiments.dll
+obj\Debug\SharpNeatExperiments.pdb
+bin\Release\SharpNeatExperiments.dll
+bin\Release\SharpNeatLib.dll
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\SharpNeatLib.Experiments.Form1.resources
+obj\Release\SharpNeatLib.Experiments.NetworkWiring.resources
+obj\Release\SharpNeatExperiments.csproj.GenerateResource.Cache
+obj\Release\SharpNeatExperiments.dll

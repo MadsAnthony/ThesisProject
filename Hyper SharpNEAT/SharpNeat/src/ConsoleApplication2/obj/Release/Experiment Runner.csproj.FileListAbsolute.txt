@@ -1,4 +1,66 @@
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\Hyper SharpNEAT_v1_0_Mads\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+C:\Users\Mads\Documents\Mads\Thesis\Hyper SharpNEAT_SUPG\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+D:\ITU\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+C:\Users\Mads\Documents\Mads\Thesis\SourceCode\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG _NSGA2\Hyper SharpNEAT_SUPG\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
@@ -8,5 +70,3 @@ C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\sr
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
-C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
-C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
