@@ -43,7 +43,7 @@ namespace PacmanAINeural
                         gameState.eatScore += 1;
                     } else {
                         //gameState.CloseGame();
-                        gameState.score -= 1;
+                        gameState.score -= 5;
                         gameState.lifeScore -= 1;
                     }
                     enemy.Sleep();
@@ -242,7 +242,7 @@ namespace PacmanAINeural
                 brain.SetInputSignal(3, gameState.enemies[0].isEdible ? 1 : 0);
                 brain.MultipleSteps(10);
 
-                /*float result0 = 0;
+                float result0 = 0;
                 float result1 = 0;
                 if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(3), 0.2f)) {
                     result0 = brain.GetOutputSignal(0);
@@ -250,21 +250,21 @@ namespace PacmanAINeural
                 else
                 {
                     result1 = brain.GetOutputSignal(1);
-                }*/
+                }
 
-                if (gameState.enemies[0].isEdible)
+                /*if (gameState.enemies[0].isEdible)
                 {
                     outputForDir[(int)dir] = brain.GetOutputSignal(0);
                 }
                 else
                 {
                     outputForDir[(int)dir] = brain.GetOutputSignal(1);
-                }
+                }*/
                 /*float result1 = 0;
                 if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(4), 0.2f)) {
                     result1 = brain.GetOutputSignal(1);
                 }*/
-                //outputForDir[(int)dir] = Math.Max(result0, result1);
+                outputForDir[(int)dir] = Math.Max(result0, result1);
                 //Console.WriteLine(Math.Min(GetClosestEnemies2(dir)[0], 100) / 100f);
             }
             //Console.WriteLine("");
