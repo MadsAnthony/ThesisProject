@@ -43,7 +43,7 @@ namespace PacmanAINeural
                         gameState.eatScore += 1;
                     } else {
                         //gameState.CloseGame();
-                        gameState.score -= 5;
+                        gameState.score -= 1;
                         gameState.lifeScore -= 1;
                     }
                     enemy.Sleep();
