@@ -1,0 +1,7 @@
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\bin\Release\Pacman.Simulator.exe
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\bin\Release\Pacman.Simulator.pdb
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\obj\Release\Simulator.csprojResolveAssemblyReference.cache
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\obj\Release\Pacman.Simulator.Visualizer.resources
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\obj\Release\Simulator.csproj.GenerateResource.Cache
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\obj\Release\Pacman.Simulator.exe
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\Simulator\obj\Release\Pacman.Simulator.pdb

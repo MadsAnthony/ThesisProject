@@ -1,0 +1,5 @@
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\MsPacmanController\bin\Controllers\PacmanAI.dll
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\MsPacmanController\bin\Controllers\PacmanAI.pdb
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\PacmanAI\obj\Release\PacmanAI.csprojResolveAssemblyReference.cache
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\PacmanAI\obj\Release\PacmanAI.dll
+C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\PacmanCSharp\Pacman\PacmanAI\obj\Release\PacmanAI.pdb
