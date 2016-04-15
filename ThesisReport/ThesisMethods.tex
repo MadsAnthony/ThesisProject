@@ -1,3 +1,4 @@
+
 \documentclass[11pt, a4paper]{article}
 %\usepackage[danish]{babel}
 \usepackage{amsmath}
@@ -29,7 +30,6 @@
 \usetikzlibrary{shapes}
 \begin{document}
 \author{Mads Anthony}
-%\maketitle
 \section{Methods}
 In this section I will describe the methods that I've been using to evolve multitasking agents. Since most of these methods is build atop other methods, I've decided to start off with a description of the basics. I then use this as a foundation to describe the next methods that is building upon that. This bottom-up approach is then repeated until I've described all the methods used in this project.
 \subsection{Evolutionary Algorithms}
@@ -64,7 +64,11 @@ With a new offspring created there is a chance that a mutation might happen. A m
 Survivor selection is similiar to parent selection, but is not stochastic. Instead it selects in a deterministic way by choosing from the unified multi set of parents and offspring the one with highest fitness.
 \subsubsection{Termination}
 When to terminate the EA can be chosen in many different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
-\subsection{NeuroEvolution}
+\subsection{Neuroevolution}
+Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following section I will give an overview of how ANN works.
+\\
+\\
+ANN is a model that is inspired by biological neural networks as observed in brain.
 \subsection{NEAT}
 \subsection{HyperNEAT}
 \subsection{Compositional Pattern Producing Network (CPPN)}
