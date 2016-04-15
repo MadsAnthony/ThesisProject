@@ -33,12 +33,26 @@
 \section{Methods}
 In this section I will describe the methods that I've been using to evolve multitasking agents. Since most of these methods is build atop other methods, I've decided to start off with a description of the basics. I then use this as a foundation to describe the next methods that is building upon that. This bottom-up approach is then repeated until I've described all the methods used in this project.
 \subsection{Evolutionary Algorithms}
+Evolutionary Algorithms (EA) is a group of algorithms that are based on implementing the principles of evolution. The general idea is to mimic real life, and let the algorithm "discover" the bests solutions. This is done by having a population of solutions be evaluated on a defined fitness parameter. We then let the fittest solutions survive, and combine them with another fit solution to produce a new offspring solution. The offspring then has a possibility to mutate and is placed in a new generation. We then repeat the procedure on the new generation until we have a good enough solution.
+\\
+\\
+The following is a more in-depth explanation of the components used to implement an EA.
+\subsubsection{Initialization}
+To start using EA, we first need to have an initial population of individuals and decide how we want to represent these individuals. The representation of the individuals that the EA works with is called the genotype, and an individual that can be used on the actual problem domain is called the phenotype.
+\\
+\\
+The phenotype space can be different from the genotype space, and choosing a genotype space is important, since it's here the evolutionary search takes place. The mapping from phenotype to genotype is called encoding and one genotype can only produce one phenotype. The mapping from phenotype to genotype is called decoding, however it is possible to have multiple genotypes that encode the same phenotype.
+\\
+\\
+With a representation chosen we can now initialise the first population. The initialisation of an EA is often kept simple, and the first population is therefore mostly generated randomly [p.23 Eiben Smith].
+\subsubsection{Evaluation}
 
-\subsubsection{Representation}
-\subsubsection{Evalutation}
+\subsubsection{Selection}
+\subsubsection{Recombination and Mutation}
+\subsubsection{Termination}
 \subsection{NeuroEvolution}
 \subsection{NEAT}
 \subsection{HyperNEAT}
 \subsection{Compositional Pattern Producing Network (CPPN)}
-\subsection{Single Unit Pattern Geneartor (SUPG)}
+\subsection{Single Unit Pattern Generator (SUPG)}
 \end{document}
