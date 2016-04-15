@@ -36,20 +36,34 @@ In this section I will describe the methods that I've been using to evolve multi
 Evolutionary Algorithms (EA) is a group of algorithms that are based on implementing the principles of evolution. The general idea is to mimic real life, and let the algorithm "discover" the bests solutions. This is done by having a population of solutions be evaluated on a defined fitness parameter. We then let the fittest solutions survive, and combine them with another fit solution to produce a new offspring solution. The offspring then has a possibility to mutate and is placed in a new generation. We then repeat the procedure on the new generation until we have a good enough solution.
 \\
 \\
-The following is a more in-depth explanation of the components used to implement an EA.
+An overview of the algorithm can be seen in figure (x) and the following will give a more in-depth explanation of the components used to implement an EA.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.2]{EA_Figure}
+\caption{[ref Eiben-Smith]}
+\end{figure}
 \subsubsection{Initialization}
 To start using EA, we first need to have an initial population of individuals and decide how we want to represent these individuals. The representation of the individuals that the EA works with is called the genotype, and an individual that can be used on the actual problem domain is called the phenotype.
 \\
 \\
-The phenotype space can be different from the genotype space, and choosing a genotype space is important, since it's here the evolutionary search takes place. The mapping from phenotype to genotype is called encoding and one genotype can only produce one phenotype. The mapping from phenotype to genotype is called decoding, however it is possible to have multiple genotypes that encode the same phenotype.
+The phenotype space can be different from the genotype space, and choosing a genotype space is important, since it's here the evolutionary search takes place. The mapping from phenotype to genotype is called encoding and it is possible to have multiple genotypes that encode the same phenotype. The reverse is called decoding, however one genotype can only produce one phenotype.
 \\
 \\
 With a representation chosen we can now initialise the first population. The initialisation of an EA is often kept simple, and the first population is therefore mostly generated randomly [p.23 Eiben Smith].
-\subsubsection{Evaluation}
-
-\subsubsection{Selection}
+\subsubsection{Evaluation and Parent Selection}
+With an initial population in place we now want to evaluate the whole population and choose which individuals will be used for parents. To do this, we introduce a fitness function. The fitness function is usually applied in the phenotype space (as it's here we want to find the best solution). The fitness of the genotype is therefore assigned by first decoding the genotype and then applying the fitness function.
+\\
+\\
+Dependent on the problem being a minimisation or maximization problem we value the individuals with lowest or highest fitness values respectively. The idea for parent selection is to let the higher quality individuals be the base for the new generation. However we don't want to make the selection solely on the fitness, but instead use a probabilistic approach where individuals with higher fitness still gets favoured. This means that other  "weaker" individuals still get a chance to get picked. This is done to avoid the search being greedy and getting stuck on local optimum [p.21 Eiben-Smith].
 \subsubsection{Recombination and Mutation}
+Recombination merges two genotypes into one or more genotypes, and the way parts from the parents gets chosen, is decided in a randomly fashion. It is possible to use more than two parents but is not common as doesn't have a biological equivalent [p.22 Eiben-Smith]. Using only one parent is called a-sexual reproduction and can produce a different offspring dependent on the variation operator [ref?].
+\\
+\\
+With a new offspring created there is a chance that a mutation might happen. A mutation will change the offspring's genotype in random unbiased way. This is done to fill the gene pool with "fresh blood" [p. 21 Eiben-Smith].
+\subsubsection{Survivor Selection}
+Survivor selection is similiar to parent selection, but is not stochastic. Instead it selects in a deterministic way by choosing from the unified multi set of parents and offspring the one with highest fitness.
 \subsubsection{Termination}
+When to terminate the EA can be chosen in many different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
 \subsection{NeuroEvolution}
 \subsection{NEAT}
 \subsection{HyperNEAT}
