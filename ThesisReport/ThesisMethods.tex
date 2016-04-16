@@ -32,7 +32,7 @@
 \section{Methods}
 In this section I will describe the methods that I've been using to evolve multitasking agents. Since most of these methods is build atop other methods, I've decided to start off with a description of the basics. I then use this as a foundation to describe the next methods that is building upon that. This bottom-up approach is then repeated until I've described all the methods used in this project.
 \subsection{Evolutionary Algorithms}
-Evolutionary Algorithms (EA) is a group of algorithms that are based on implementing the principles of evolution. The general idea is to mimic real life, and let the algorithm "discover" the bests solutions. This is done by having a population of solutions be evaluated on a defined fitness parameter. We then let the fittest solutions survive, and combine them with another fit solution to produce a new offspring solution. The offspring then has a possibility to mutate and is placed in a new generation. We then repeat the procedure on the new generation until we have a good enough solution.
+Evolutionary Algorithms (EA) is a group of algorithms that are based on implementing the principles of evolution. The general idea is to mimic real life, and let the algorithm "discover" the best solutions. This is done by having a population of solutions be evaluated on a defined fitness parameter. We then let the fittest solutions survive, and combine them with another fit solution to produce a new offspring solution. The offspring then has a possibility to mutate and is placed in a new generation. We then repeat the procedure on the new generation until we have a good enough solution.
 \\
 \\
 An overview of the algorithm can be seen in figure (x) and the following will give a more in-depth explanation of the components used to implement an EA.
@@ -64,10 +64,34 @@ Survivor selection is similiar to parent selection, but is not stochastic. Inste
 \subsubsection{Termination}
 When to terminate the EA can be chosen in many different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
 \subsection{Neuroevolution}
-Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following section I will give an overview of how ANN works.
+Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following I will give an overview of what ANN are and how they work.
+\subsubsection{ANN}
+ANN is a model that is inspired by biological neural networks - as observed in the brain. ANN is a collection of interconnected neurons and can be thought of as messages getting exchanged between each neuron. A single neuron can be defined in the following way.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.2]{SingleNeuron}
+\includegraphics[scale=0.5]{sigmoid}
+\caption{[ref http://ufldl.stanford.edu]}
+\end{figure}
+\\
+As seen in figure (x), the neuron takes a number of inputs given by vector $ X $ and sums them together. It then inputs the sum into the the function $ h $ - also called an activation function. The idea with the activation function is... [ref].
 \\
 \\
-ANN is a model that is inspired by biological neural networks as observed in brain.
+The activation function can vary depending on the setup but often a sigmoid function is chosen. The one input to the neuron that is 1, is called a bias and can be grouped together with the vector $ X $ by setting $ X_0 = 1 $.
+\\
+\\
+With the definition of a single neuron we can now connect them together with other neurons to get a larger network of neurons. However before we do that, we rewrite the input vector $ X $ as the product of a weight $ w $ and the output $ z $ of another neuron.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.7]{NeuralNetwork}
+\caption{[ref - don't use this]}
+\end{figure}
+\\
+\\
+Each neuron can then computed with the following.
+\begin{equation}
+z_k = h(\sum\limits_{j}{w_{kj} z_j})
+\end{equation}
 \subsection{NEAT}
 \subsection{HyperNEAT}
 \subsection{Compositional Pattern Producing Network (CPPN)}
