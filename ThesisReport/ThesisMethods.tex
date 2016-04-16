@@ -64,7 +64,7 @@ Survivor selection is similiar to parent selection, but is not stochastic. Inste
 \subsubsection{Termination}
 When to terminate the EA can be chosen in many different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
 \subsection{Neuroevolution}
-Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following I will give an overview of what ANN are and how they work.
+Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following I will give an overview of what an ANN is and how they work.
 \subsubsection{ANN}
 ANN is a model that is inspired by biological neural networks - as observed in the brain. ANN is a collection of interconnected neurons and can be thought of as messages getting exchanged between each neuron. A single neuron can be defined in the following way.
 \begin{figure}[!ht]
@@ -88,10 +88,17 @@ With the definition of a single neuron we can now connect them together with oth
 \end{figure}
 \\
 \\
-Each neuron can then computed with the following.
+Each neuron can then be computed int the following.
 \begin{equation}
-z_k = h(\sum\limits_{j}{w_{kj} z_j})
+z_k = h\Big(\sum\limits_{j}{w_{kj} z_j}\Big)
 \end{equation}
+ANN has three different types of layers as shown in figure (x). An input layer that takes the input often along with a bias. A hidden layer that connects the input layer to either the output or a new hidden layer. An output layer then uses the connections from the hidden (and input - if any connection) layer to produce the output. 
+\\
+\\
+It's possible to have cyclic connections, ex. a neuron connected to itself, but the networks I train in this project is feed forward and don't have any cycles. 
+\\
+\\
+Neural networks can also be used in standard classification task by feeding the network an input and compare the output with a target output using an error term. This error term can then be minimized by setting the weights using the back propagation algorithm. However in neuroevolution we don't set the weights using back propagation, but instead let an evolutionary algorithm decide.
 \subsection{NEAT}
 \subsection{HyperNEAT}
 \subsection{Compositional Pattern Producing Network (CPPN)}
