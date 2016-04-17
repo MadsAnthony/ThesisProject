@@ -103,7 +103,9 @@ Neural networks can also be used in standard classification task by feeding the 
 Now that I've given a brief description of both evolutionary algorithms and neural networks, it's time to put the things together and use it to evolve neural networks. To evolve the networks I use NeuroEvolution of Augmenting Topologies (NEAT), since it manages to handle many of the problems that arise when evolving neural networks. Unlike other algorithms that has a fixed structure (ex. 1 hidden layer), NEAT starts of with a minimum structure and evolves by the use of historical markings and speciation. A more detailed explanation of how NEAT works is explained in the following.
 \\
 \\
-Crossover different topologies. (representation)
+NEAT uses a direct encoding by letting the genotype have two lists representing the network, one for the nodes and another for the connections. The reason NEAT is using a direct encoding instead of an indirect, is that an indirect encoding tend to bias the search in unpredictable ways [stanley p. 102].
+\\
+\\ 
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{NEAT_Matching}
