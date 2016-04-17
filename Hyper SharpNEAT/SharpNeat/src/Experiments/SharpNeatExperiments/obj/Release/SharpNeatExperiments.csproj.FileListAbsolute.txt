@@ -11,3 +11,16 @@ C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\sr
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.Pacman.SimplePacman.resources
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.csproj.GenerateResource.Cache
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\SharpNeatExperiments.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\Pacman.Simulator.exe
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\PacmanAI.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\SharpNeatLib.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\PacmanAI.pdb
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\bin\Release\Pacman.Simulator.pdb
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.csprojResolveAssemblyReference.cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatLib.Experiments.Form1.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatLib.Experiments.NetworkWiring.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.Pacman.MyForm1.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.Pacman.SimplePacman.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.csproj.GenerateResource.Cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\Experiments\SharpNeatExperiments\obj\Release\SharpNeatExperiments.dll

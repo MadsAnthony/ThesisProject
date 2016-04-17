@@ -1,21 +1,22 @@
-<genome id="153" species-id="0" age="1" fitness="109,00" objective-fitness="109,00">
+<genome id="1083" species-id="0" age="1" fitness="780,49" objective-fitness="780,49">
   <neurons>
     <neuron id="0" type="bias" activationFunction="NullFn" />
     <neuron id="1" type="in" activationFunction="NullFn" />
     <neuron id="2" type="in" activationFunction="NullFn" />
     <neuron id="3" type="in" activationFunction="NullFn" />
     <neuron id="4" type="in" activationFunction="NullFn" />
-    <neuron id="5" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="5" type="in" activationFunction="NullFn" />
     <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
-    <neuron id="17" type="hid" activationFunction="BipolarSigmoid" />
-    <neuron id="110" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="58" type="hid" activationFunction="BipolarSigmoid" />
   </neurons>
   <connections>
-    <connection innov-id="7" src-id="0" tgt-id="5" weight="-0,031741686165332794" />
-    <connection innov-id="12" src-id="0" tgt-id="6" weight="1,4388965601101518" />
-    <connection innov-id="15" src-id="3" tgt-id="6" weight="-1,4784279386512935" />
-    <connection innov-id="19" src-id="17" tgt-id="5" weight="0,060684837866574526" />
-    <connection innov-id="111" src-id="2" tgt-id="110" weight="1" />
-    <connection innov-id="112" src-id="110" tgt-id="17" weight="1" />
+    <connection innov-id="10" src-id="2" tgt-id="6" weight="-0,12181013077497482" />
+    <connection innov-id="12" src-id="4" tgt-id="6" weight="0,5808083969168365" />
+    <connection innov-id="13" src-id="5" tgt-id="6" weight="-1,4449253613129258" />
+    <connection innov-id="14" src-id="0" tgt-id="7" weight="0,828580766916275" />
+    <connection innov-id="15" src-id="1" tgt-id="7" weight="0,78369879629462957" />
+    <connection innov-id="59" src-id="4" tgt-id="58" weight="1" />
+    <connection innov-id="60" src-id="58" tgt-id="7" weight="0,90824827132746577" />
   </connections>
 </genome>

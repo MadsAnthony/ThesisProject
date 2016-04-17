@@ -24,7 +24,7 @@ namespace SharpNeatLib.Experiments
         //public static float weightRange = 3.0F;
         //public static bool circle = true;
 
-        public static FoodGatherParams parameters = new FoodGatherParams();
+        //public static FoodGatherParams parameters = new FoodGatherParams();
 
         Maths.FastRandom rand = new SharpNeatLib.Maths.FastRandom();
 

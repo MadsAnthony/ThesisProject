@@ -1,24 +1,46 @@
-<genome id="354" species-id="0" age="1" fitness="108,00" objective-fitness="108,00">
+<genome id="2306" species-id="0" age="1" fitness="944,25" objective-fitness="944,25">
   <neurons>
     <neuron id="0" type="bias" activationFunction="NullFn" />
     <neuron id="1" type="in" activationFunction="NullFn" />
     <neuron id="2" type="in" activationFunction="NullFn" />
     <neuron id="3" type="in" activationFunction="NullFn" />
     <neuron id="4" type="in" activationFunction="NullFn" />
-    <neuron id="5" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="5" type="in" activationFunction="NullFn" />
     <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
-    <neuron id="164" type="hid" activationFunction="BipolarSigmoid" />
-    <neuron id="170" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="45" type="hid" activationFunction="Linear" />
+    <neuron id="58" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="62" type="hid" activationFunction="Sine" />
+    <neuron id="150" type="hid" activationFunction="Gaussian" />
+    <neuron id="307" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="363" type="hid" activationFunction="Linear" />
+    <neuron id="421" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="465" type="hid" activationFunction="Sine" />
+    <neuron id="507" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="806" type="hid" activationFunction="Sine" />
   </neurons>
   <connections>
-    <connection innov-id="7" src-id="0" tgt-id="5" weight="1,3003316349349916" />
-    <connection innov-id="13" src-id="1" tgt-id="6" weight="-0,718247186858207" />
-    <connection innov-id="14" src-id="2" tgt-id="6" weight="-1,0897719785571098" />
-    <connection innov-id="15" src-id="3" tgt-id="6" weight="0,8359901737421751" />
-    <connection innov-id="16" src-id="4" tgt-id="6" weight="-0,37182933837175369" />
-    <connection innov-id="107" src-id="4" tgt-id="5" weight="-0,20325443241745234" />
-    <connection innov-id="165" src-id="0" tgt-id="164" weight="1" />
-    <connection innov-id="171" src-id="164" tgt-id="170" weight="1" />
-    <connection innov-id="172" src-id="170" tgt-id="6" weight="0,65453743189573288" />
+    <connection innov-id="10" src-id="2" tgt-id="6" weight="-0,12181013077497482" />
+    <connection innov-id="12" src-id="4" tgt-id="6" weight="0,77171977981925011" />
+    <connection innov-id="13" src-id="5" tgt-id="6" weight="-1,4449253613129258" />
+    <connection innov-id="14" src-id="0" tgt-id="7" weight="0,828580766916275" />
+    <connection innov-id="15" src-id="1" tgt-id="7" weight="1,415757613722235" />
+    <connection innov-id="59" src-id="4" tgt-id="58" weight="1" />
+    <connection innov-id="63" src-id="4" tgt-id="62" weight="1" />
+    <connection innov-id="64" src-id="62" tgt-id="6" weight="0,57416940573602915" />
+    <connection innov-id="151" src-id="1" tgt-id="150" weight="1" />
+    <connection innov-id="152" src-id="150" tgt-id="45" weight="1" />
+    <connection innov-id="308" src-id="2" tgt-id="307" weight="1" />
+    <connection innov-id="309" src-id="307" tgt-id="7" weight="1,2196327582933009" />
+    <connection innov-id="364" src-id="5" tgt-id="363" weight="1" />
+    <connection innov-id="365" src-id="363" tgt-id="6" weight="-1,4449253613129258" />
+    <connection innov-id="422" src-id="5" tgt-id="421" weight="1" />
+    <connection innov-id="423" src-id="421" tgt-id="7" weight="1,4886138481087983" />
+    <connection innov-id="466" src-id="4" tgt-id="465" weight="1" />
+    <connection innov-id="467" src-id="465" tgt-id="7" weight="-0,48032335471361876" />
+    <connection innov-id="508" src-id="58" tgt-id="507" weight="1" />
+    <connection innov-id="509" src-id="507" tgt-id="7" weight="0,90824827132746577" />
+    <connection innov-id="807" src-id="45" tgt-id="806" weight="1" />
+    <connection innov-id="808" src-id="806" tgt-id="6" weight="0,28727103397250175" />
   </connections>
 </genome>

@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="FoodGathering\Agent.cs" />
     <Compile Include="FoodGathering\Board.cs" />
+    <Compile Include="Pacman\SUPGONLY\SUPGONLYController.cs" />
     <Compile Include="Pacman\SimplePacmanEnemyController.cs" />
     <Compile Include="Pacman\SimplePacman.cs">
       <SubType>Form</SubType>
@@ -145,6 +146,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pacman\SimplePacmanController.cs" />
+    <Compile Include="Pacman\SUPGONLY\SUPGONLYExperiment.cs" />
+    <Compile Include="Pacman\SUPGONLY\SUPGONLYNetworkEvaluator.cs" />
+    <Compile Include="Pacman\SUPGONLY\SUPGONLYPopulationEvaluator.cs" />
     <Compile Include="Pacman\SUPG\NeuralPacmanSUPG.cs" />
     <Compile Include="Pacman\SUPG\PacmanSubstrateSUPG.cs" />
     <Compile Include="Pacman\SUPG\PacmanExperimentSUPG.cs" />
@@ -173,7 +177,6 @@
     <Compile Include="FoodGathering\FoodGatherPopulationEvaluator.cs" />
     <Compile Include="FoodGathering\stats.cs" />
     <Compile Include="FoodGathering\Utilites.cs" />
-    <Compile Include="HyperNEATParameters.cs" />
     <Compile Include="Pacman\PacmanNetworkEvaluator.cs" />
     <Compile Include="Pacman\PacmanPopulationEvaluator.cs" />
     <Compile Include="Pacman\NeuralPacman.cs" />

@@ -5,3 +5,10 @@ C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\sr
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.NetworkVisualization.Viewport.resources
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.csproj.GenerateResource.Cache
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\bin\Release\SharpNeatLib.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.csprojResolveAssemblyReference.cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.Experiments.AbstractExperimentView.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.NetworkVisualization.NetworkControl.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.NetworkVisualization.Viewport.resources
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.csproj.GenerateResource.Cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\SharpNeatLib\obj\Release\SharpNeatLib.dll

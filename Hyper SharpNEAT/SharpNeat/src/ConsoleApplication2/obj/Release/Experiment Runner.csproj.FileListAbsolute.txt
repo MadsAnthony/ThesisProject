@@ -70,3 +70,15 @@ C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\sr
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
 C:\Users\Mads\Documents\Mads\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatExperiments.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\SharpNeatLib.dll
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.exe
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\PacmanAI.pdb
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\bin\Release\Pacman.Simulator.pdb
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\Experiment Runner.csprojResolveAssemblyReference.cache
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+F:\SmartGit\ThesisProject\Hyper SharpNEAT\SharpNeat\src\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb

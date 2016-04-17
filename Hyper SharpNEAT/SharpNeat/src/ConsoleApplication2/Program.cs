@@ -37,8 +37,8 @@ namespace SharpNeat.Experiments
 
 
             double maxFitness = 0;
-            int maxGenerations = 50;
-            int populationSize = 30;//100;//150;
+            int maxGenerations = 100;
+            int populationSize = 200;//100;//150;
 
             Thread extraWindowThread;
             extraWindowThread = new System.Threading.Thread(delegate()
@@ -47,7 +47,7 @@ namespace SharpNeat.Experiments
                 System.Windows.Forms.Application.Run(myForm);
             });
             extraWindowThread.Start();
-            IExperiment exp = new PacmanExperimentSUPG(4, 12, 12, 4, 2);
+            IExperiment exp = new SUPGONLYExperiment(4,12,12,5,2);//new PacmanExperimentSUPG(4, 12, 12, 5, 2);
             StreamWriter SW;
             SW = File.CreateText("logfile.txt");
             //Change this line for different experiments

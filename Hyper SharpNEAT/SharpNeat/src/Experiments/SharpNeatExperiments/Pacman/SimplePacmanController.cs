@@ -43,7 +43,7 @@ namespace PacmanAINeural
                         gameState.eatScore += 1;
                     } else {
                         //gameState.CloseGame();
-                        gameState.score -= 1;
+                        gameState.score -= 2;
                         gameState.lifeScore -= 1;
                     }
                     enemy.Sleep();
@@ -185,16 +185,19 @@ namespace PacmanAINeural
             // if the element is float.min, then we have not yet cached the SUPG output
             if (supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter] == float.MinValue)
             {
-                double[] coordinates = new double[3];
+                double[] coordinates = new double[5];
 
 
                 coordinates[0] = (float)neuron.XValue;
                 coordinates[1] = (float)neuron.YValue;
 
+                coordinates[2] = 1;
+                coordinates[3] = 1;
 
-                coordinates[0] = coordinates[0] / compression;
 
-                coordinates[2] = (float)neuron.TimeCounter / wavelength;
+                //coordinates[0] = coordinates[0] / compression;
+
+                coordinates[4] = (float)neuron.TimeCounter / wavelength;
 
                 cppn.ClearSignals();
                 cppn.SetInputSignals(coordinates);
@@ -244,27 +247,31 @@ namespace PacmanAINeural
 
                 float result0 = 0;
                 float result1 = 0;
-                if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(3), 0.2f)) {
+                /*if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(3), 0.2f)) {
                     result0 = brain.GetOutputSignal(0);
                 }
-                else
+                if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(4), 0.2f))
                 {
                     result1 = brain.GetOutputSignal(1);
-                }
-
-                /*if (gameState.enemies[0].isEdible)
+                */
+                /*else
+                {
+                    result1 = brain.GetOutputSignal(1);
+                }*/
+                
+                if (gameState.enemies[0].isEdible)
                 {
                     outputForDir[(int)dir] = brain.GetOutputSignal(0);
                 }
                 else
                 {
                     outputForDir[(int)dir] = brain.GetOutputSignal(1);
-                }*/
+                }
                 /*float result1 = 0;
                 if (IsWithinThreshold(network.GetOutputSignal(2), network.GetOutputSignal(4), 0.2f)) {
                     result1 = brain.GetOutputSignal(1);
                 }*/
-                outputForDir[(int)dir] = Math.Max(result0, result1);
+                //outputForDir[(int)dir] = Math.Max(result0, result1);
                 //Console.WriteLine(Math.Min(GetClosestEnemies2(dir)[0], 100) / 100f);
             }
             //Console.WriteLine("");

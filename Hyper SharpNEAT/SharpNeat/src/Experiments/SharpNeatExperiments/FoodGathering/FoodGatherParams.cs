@@ -16,7 +16,7 @@ namespace SharpNeatLib.Experiments
 
         static FoodGatherParams()
         {
-            loadParameterFile();
+            //loadParameterFile();
             string tempParam = null;
             tempParam = getParameter("circle");
             if (tempParam != null)
