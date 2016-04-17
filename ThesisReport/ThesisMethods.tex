@@ -88,7 +88,7 @@ With the definition of a single neuron we can now connect them together with oth
 \end{figure}
 \\
 \\
-Each neuron can then be computed int the following.
+Each neuron can then be computed in the following.
 \begin{equation}
 z_k = h\Big(\sum\limits_{j}{w_{kj} z_j}\Big)
 \end{equation}
@@ -100,6 +100,21 @@ It's possible to have cyclic connections, ex. a neuron connected to itself, but 
 \\
 Neural networks can also be used in standard classification task by feeding the network an input and compare the output with a target output using an error term. This error term can then be minimized by setting the weights using the back propagation algorithm. However in neuroevolution we don't set the weights using back propagation, but instead let an evolutionary algorithm decide.
 \subsection{NEAT}
+Now that I've given a brief description of both evolutionary algorithms and neural networks, it's time to put the things together and use it to evolve neural networks. To evolve the networks I use NeuroEvolution of Augmenting Topologies (NEAT), since it manages to handle many of the problems that arise when evolving neural networks. Unlike other algorithms that has a fixed structure (ex. 1 hidden layer), NEAT starts of with a minimum structure and evolves by the use of historical markings and speciation. A more detailed explanation of how NEAT works is explained in the following.
+\\
+\\
+Crossover different topologies. (representation)
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{NEAT_Matching}
+\caption{[ref - don't use this]}
+\end{figure}
+\\
+\\
+Protecting structural innovation.
+\\
+\\
+Minimum structure.
 \subsection{HyperNEAT}
 \subsection{Compositional Pattern Producing Network (CPPN)}
 \subsection{Single Unit Pattern Generator (SUPG)}
