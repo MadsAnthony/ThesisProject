@@ -105,7 +105,11 @@ Now that I've given a brief description of both evolutionary algorithms and neur
 \\
 NEAT uses a direct encoding by letting the genotype have two lists representing the network, one for the nodes and another for the connections. The reason NEAT is using a direct encoding instead of an indirect, is that an indirect encoding tend to bias the search in unpredictable ways [stanley p. 102].
 \\
-\\ 
+\\
+One of the problems with doing NeuroEvolution is dealing with the Competing Convention Problem [ref stanley p. 103]. It's a problem that arise when you have multiple genomes that produces the same solution but have different encoding. When doing crossover on these, it's likely to produce damaged offspring - since they are permutation of one another, you could end up getting the same "information" from both parents.
+\\
+\\
+To deal with this problem along with the problem of matching two structurally different networks, NEAT introduces a historical marking for each gene. This is done to keep track of all the genes, and match those that share the same origin. An example of this is given in the following.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{NEAT_Matching}
