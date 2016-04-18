@@ -376,7 +376,7 @@ class PacmanSubstrateSUPG : Substrate
                 point = new Point(0.2f, -0.1f);
                 break;
             case 8:
-                point = new Point(-1f, -1f);
+                point = new Point(0.4f, -0.1f);
                 break;
         }
         return point;

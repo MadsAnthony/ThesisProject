@@ -30,7 +30,7 @@ namespace PacmanAINeural
         INetwork cppn;
         int[] triggerMap;
 
-        float dummyMasterFreqValue = 0.5f;
+        public float dummyMasterFreqValue = 1f;
         public float dummyFitness = 0;
 
         public SUPGONLYController(/*SharpNeatExperiments.Pacman.SimplePacman gameState*/) {
@@ -194,11 +194,11 @@ namespace PacmanAINeural
                 coordinates[0] = (float)neuron.XValue;
                 coordinates[1] = (float)neuron.YValue;
 
-                coordinates[2] = 1;
-                coordinates[3] = 1;
+                coordinates[2] = 0;
+                coordinates[3] = 0;
 
 
-                //coordinates[0] = coordinates[0] / compression;
+                coordinates[0] = coordinates[0] / compression;
 
                 coordinates[4] = (float)neuron.TimeCounter / wavelength;
 
@@ -238,7 +238,7 @@ namespace PacmanAINeural
             SharpNeatExperiments.Pacman.MyForm1.freqMaster = dummyMasterFreqValue;//brain.GetOutputSignal(2);
             SharpNeatExperiments.Pacman.MyForm1.freq1 = brain.GetOutputSignal(3);
             SharpNeatExperiments.Pacman.MyForm1.freq2 = brain.GetOutputSignal(4);
-            dummyFitness += (1 - (Math.Abs(dummyMasterFreqValue - brain.GetOutputSignal(3))) + (Math.Abs(dummyMasterFreqValue - brain.GetOutputSignal(4))));
+            dummyFitness += (1-Math.Abs(dummyMasterFreqValue - brain.GetOutputSignal(3))) + (Math.Abs(dummyMasterFreqValue - brain.GetOutputSignal(4)));
         }
 
         public void makeAChangeInMasterFreq() {

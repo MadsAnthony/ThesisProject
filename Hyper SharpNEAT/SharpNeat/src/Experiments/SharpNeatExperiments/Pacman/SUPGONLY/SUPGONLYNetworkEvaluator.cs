@@ -104,7 +104,7 @@ namespace SharpNeatLib.Experiments
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController);
+                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, false);
                     System.Windows.Forms.Application.Run(simplePacman);
 
                     //visualizer = new Visualizer(pacman);
@@ -150,10 +150,15 @@ namespace SharpNeatLib.Experiments
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
                     int tmpCounter = 0;
-                    while (tmpCounter < 600)
+                    while (tmpCounter < 200)
                     {
-                        if (tmpCounter % 50 == 0) {
+                        //supgonlyController.dummyMasterFreqValue = (float)Math.Sin(tmpCounter*0.1f);
+                        if (tmpCounter%50 == 0) {
                             supgonlyController.makeAChangeInMasterFreq();
+                        }
+                        if (tmpCounter == 80)
+                        {
+                            //supgonlyController.makeAChangeInMasterFreq();
                         }
                         supgonlyController.Think();
                         /*simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController);
@@ -161,7 +166,7 @@ namespace SharpNeatLib.Experiments
 
                         //visualizer = new Visualizer(pacman);
                         //System.Windows.Forms.Application.Run(visualizer);
-                        Thread.Sleep(20);
+                        Thread.Sleep(50);
                         tmpCounter++;
                     }
                 });
@@ -172,7 +177,7 @@ namespace SharpNeatLib.Experiments
             }
             double avgFitness = totalFitness / retries;
 
-            Console.WriteLine("newEvaluation" + avgFitness);
+            //Console.WriteLine("newEvaluation" + avgFitness);
             return avgFitness;
             /*int time = visualizer.returnGameState;
             return (double)time;//fitness;*/

@@ -104,7 +104,7 @@ namespace SharpNeatLib.Experiments
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController);
+                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, false);
                     System.Windows.Forms.Application.Run(simplePacman);
 
                     //visualizer = new Visualizer(pacman);
@@ -135,7 +135,7 @@ namespace SharpNeatLib.Experiments
             SharpNeatExperiments.Pacman.MyForm1.neatGenome = tempGenome;
             SharpNeatExperiments.Pacman.MyForm1.network = tempNet;
 
-            double retries = 1;
+            double retries = 5;
             double totalFitness = 0;
             for (int i = 0; i < retries; i++) {
                 var pacman = new PacmanAINeural.NeuralPacmanSUPG();
@@ -151,8 +151,11 @@ namespace SharpNeatLib.Experiments
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController);
-                    System.Windows.Forms.Application.Run(simplePacman);
+                    bool fastNoDraw = false;
+                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, fastNoDraw);
+                    if (!fastNoDraw) {
+                        System.Windows.Forms.Application.Run(simplePacman);
+                    }
 
                     //visualizer = new Visualizer(pacman);
                     //System.Windows.Forms.Application.Run(visualizer);

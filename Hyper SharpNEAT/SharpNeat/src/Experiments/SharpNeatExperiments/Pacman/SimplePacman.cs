@@ -39,10 +39,10 @@ namespace SharpNeatExperiments.Pacman
         public int returnEatScore;
         public int returnLifeScore;
 
-        bool fastNoDraw = false;
+        bool fastNoDraw = true;
         bool dontThink = false;
 
-        public SimplePacman(PacmanAINeural.SimplePacmanController controller)
+        public SimplePacman(PacmanAINeural.SimplePacmanController controller, bool fastNoDraw)
         {
             InitializeComponent();
             KeyDown += new KeyEventHandler(keyDownHandler);
@@ -75,17 +75,27 @@ namespace SharpNeatExperiments.Pacman
             enemies[2].pos = new Point(  width / 8, 6*height / 8);
             enemies[3].pos = new Point(6*width / 8, 6*height / 8);
 
-            int myData = 0; // dummy data
-            tickHandler = new TimerEventHandler(tick);
-            fastTimer = timeSetEvent(fastNoDraw ? 1 : 20, fastNoDraw? 1:20, tickHandler, ref myData, 1);
+            //int myData = 0; // dummy data
+            /*tickHandler = new TimerEventHandler(tick);
+            fastTimer = timeSetEvent(fastNoDraw ? 1 : 20, fastNoDraw? 1:20, tickHandler, ref myData, 1);*/
 
             Application.ApplicationExit += new EventHandler(closeHandler);
 
-            //loop();
+            this.fastNoDraw = fastNoDraw;
+            if (fastNoDraw) {
+                loop();
+            } else {
+                int myData = 0; // dummy data
+                tickHandler = new TimerEventHandler(tick);
+                fastTimer = timeSetEvent(fastNoDraw ? 1 : 20, fastNoDraw? 1:20, tickHandler, ref myData, 1);
+            }
         }
 
         void loop() {
-            Thread extraWindowThread;
+            while (myTick(false)) {
+            }
+            closingStuff();
+            /*Thread extraWindowThread;
             extraWindowThread = new System.Threading.Thread(delegate()
             {
                 while (true)
@@ -95,15 +105,55 @@ namespace SharpNeatExperiments.Pacman
                     //Thread.Sleep(20);
                 }
             });
-            extraWindowThread.Start();
+            extraWindowThread.Start();*/
         }
-
-        public void CloseGame() {
+        void closingStuff() {
             returnGameScore = score;
             returnEatScore = eatScore;
             returnLifeScore = lifeScore;
+        }
+
+        public void CloseGame() {
+            closingStuff();
+            /*returnGameScore = score;
+            returnEatScore = eatScore;
+            returnLifeScore = lifeScore;*/
             timeKillEvent(fastTimer);
             this.Close();
+        }
+
+        public bool myTick(bool shouldDraw) {
+            timer++;
+            if (timer > timeOut)
+            {
+                return false;
+                //CloseGame();
+            }
+
+            taskTimer++;
+
+            CheckIfSwitchTask();
+
+            // move
+            if (!dontThink)
+            {
+                controller.Think();
+            }
+            MoveController();
+            foreach (var enemy in enemies)
+            {
+                enemy.Move();
+            }
+
+            // check for collision
+            controller.CheckForHit();
+
+            // draw
+            if (shouldDraw)
+            {
+                Draw();
+            }
+            return true;
         }
 
         private void tick(uint id, uint msg, ref int userCtx, int rsv1, int rsv2) {
