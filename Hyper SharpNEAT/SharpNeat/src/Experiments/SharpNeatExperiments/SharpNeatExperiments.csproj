@@ -128,6 +128,11 @@
     </Compile>
     <Compile Include="FoodGathering\Agent.cs" />
     <Compile Include="FoodGathering\Board.cs" />
+    <Compile Include="Pacman\SimplePacmanClassic\SPCController.cs" />
+    <Compile Include="Pacman\SimplePacmanClassic\SPCExperiment.cs" />
+    <Compile Include="Pacman\SimplePacmanClassic\SPCNetworkEvaluator.cs" />
+    <Compile Include="Pacman\SimplePacmanClassic\SPCPopulationEvaluator.cs" />
+    <Compile Include="Pacman\SimplePacmanClassic\SPCSubstrate.cs" />
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMController.cs" />
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMExperiment.cs" />
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMNetworkEvaluator.cs" />
@@ -201,7 +206,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pacman\SimplePacmanClassic\" />
     <Folder Include="Pacman\SimplePacmanSUPG\" />
   </ItemGroup>
   <ItemGroup>

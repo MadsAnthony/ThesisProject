@@ -49,9 +49,10 @@ namespace SharpNeat.Experiments
             extraWindowThread.Start();
 
             IExperiment exp = null;
-            exp = new SUPGONLYExperiment(4,12,12,5,2);
+            //exp = new SUPGONLYExperiment(4,12,12,5,2);
             //exp = new PacmanExperimentSUPG(4, 12, 12, 5, 2);
-            //exp = new SPMMExperiment(4, 12, 12, 5, 2);
+            exp = new SPMMExperiment(4, 12, 12, 5, 2);
+            //exp = new SPCExperiment(4, 12, 12, 5, 2);
 
             StreamWriter SW;
             SW = File.CreateText("logfile.txt");
