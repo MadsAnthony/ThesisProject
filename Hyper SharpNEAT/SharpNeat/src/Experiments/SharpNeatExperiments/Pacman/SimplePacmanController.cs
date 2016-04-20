@@ -17,17 +17,17 @@ namespace PacmanAINeural
         public SharpNeatExperiments.Pacman.SimplePacman gameState;
         public Point pos;
 
-        INetwork brain;
+        public INetwork brain;
         private static int wavelength = 100;  // SUPG wavelength
         private static int compression = 50;
         // arrays added to cache CPPN outputs for SUPG activation
         private float[,] supgOutputs;
         private bool kickstart = true;
 
-        INetwork network;
-        bool useSUPG;
-        NeatGenome genome;
-        INetwork cppn;
+        public INetwork network;
+        public bool useSUPG;
+        public NeatGenome genome;
+        public INetwork cppn;
         int[] triggerMap;
 
         public SimplePacmanController(/*SharpNeatExperiments.Pacman.SimplePacman gameState*/) {
@@ -110,7 +110,7 @@ namespace PacmanAINeural
                             }
                             if (neuron.InnovationId == 8)
                             {
-                                neuron.TimeCounter = wavelength / 2;
+                                neuron.TimeCounter = 0; //wavelength / 2;
                             }
                         }
                     }
@@ -229,7 +229,7 @@ namespace PacmanAINeural
             return returnFreq;
         }
 
-        public void Think() {
+        public virtual void Think() {
             update(gameState.timer, new double[2], new float[40]);
 
             double[] outputForDir = new double[4];
@@ -283,7 +283,7 @@ namespace PacmanAINeural
             TranslateOutputForBrain(outputForDir);
         }
 
-        private void TranslateOutputForBrain(double[] outputSignals) {
+        public void TranslateOutputForBrain(double[] outputSignals) {
             double maxValue = 0;
             int maxIndex = 0;
             for (int i = 0; i < 4; i++)
@@ -313,12 +313,13 @@ namespace PacmanAINeural
             return;
         }
 
-        bool IsWithinThreshold(float input1, float input2, float threshold)
+        public bool IsWithinThreshold(float input1, float input2, float threshold)
         {
             return (input2 < input1 + threshold && input2 > input1 - threshold);
         }
 
-        int[] GetClosestEnemies(Direction dir) {
+        public int[] GetClosestEnemies(Direction dir)
+        {
             int[] minDistances = new int[4];
             Point newPos = pos;
             switch (dir) {
@@ -361,7 +362,7 @@ namespace PacmanAINeural
             return (minDistances);
         }
 
-        int[] GetClosestEnemies2(Direction dir)
+        public int[] GetClosestEnemies2(Direction dir)
         {
             int[] minDistances = new int[4];
             for (int i = 0; i < gameState.enemies.Length; i++)

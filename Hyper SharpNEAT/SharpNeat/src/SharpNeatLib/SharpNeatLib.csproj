@@ -409,6 +409,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NeuralNetwork\ActivationFunctions\BipolarSigmoid.cs" />
+    <Compile Include="NeuralNetwork\ActivationFunctions\Cosine.cs" />
     <Compile Include="NeuralNetwork\ActivationFunctions\Gaussian.cs" />
     <Compile Include="NeuralNetwork\ActivationFunctions\Modulus.cs" />
     <Compile Include="NeuralNetwork\ActivationFunctions\Sine.cs" />

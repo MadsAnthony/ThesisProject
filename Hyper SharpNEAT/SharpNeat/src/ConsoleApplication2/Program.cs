@@ -47,14 +47,12 @@ namespace SharpNeat.Experiments
                 System.Windows.Forms.Application.Run(myForm);
             });
             extraWindowThread.Start();
-            bool isSUPGONLY_EXPERIMENT = false;
 
             IExperiment exp = null;
-            if (isSUPGONLY_EXPERIMENT) {
-                exp = new SUPGONLYExperiment(4,12,12,5,2);
-            } else {
-                exp = new PacmanExperimentSUPG(4, 12, 12, 5, 2);
-            }
+            exp = new SUPGONLYExperiment(4,12,12,5,2);
+            //exp = new PacmanExperimentSUPG(4, 12, 12, 5, 2);
+            //exp = new SPMMExperiment(4, 12, 12, 5, 2);
+
             StreamWriter SW;
             SW = File.CreateText("logfile.txt");
             //Change this line for different experiments

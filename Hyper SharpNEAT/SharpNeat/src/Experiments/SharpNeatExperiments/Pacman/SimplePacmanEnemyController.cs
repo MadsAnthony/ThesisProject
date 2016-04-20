@@ -70,9 +70,9 @@ namespace PacmanAINeural
 
         public void Sleep() {
             isSleeping = true;
-            Random random = new Random();
-            int randomX = random.Next(0, gameState.width);
-            int randomY = random.Next(0, gameState.height);
+            //Random random = new Random();
+            int randomX = gameState.Random.Next(0, gameState.width);
+            int randomY = gameState.Random.Next(0, gameState.height);
             pos = new Point(randomX, randomY);
         }
 

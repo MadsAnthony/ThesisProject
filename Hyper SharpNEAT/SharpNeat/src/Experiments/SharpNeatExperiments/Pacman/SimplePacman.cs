@@ -30,9 +30,9 @@ namespace SharpNeatExperiments.Pacman
         public int timer = 0;
         int switchTime = 50;
         int taskTimer = 0;
-        public int score = 100;
+        public int score = 1000;
         public int eatScore = 0;
-        public int lifeScore = 100;
+        public int lifeScore = 1000;
         public PacmanAINeural.SimplePacmanController controller;
         public PacmanAINeural.SimplePacmanEnemyController[] enemies;
         public int returnGameScore;
@@ -41,8 +41,9 @@ namespace SharpNeatExperiments.Pacman
 
         bool fastNoDraw = true;
         bool dontThink = false;
+        public Random Random;
 
-        public SimplePacman(PacmanAINeural.SimplePacmanController controller, bool fastNoDraw)
+        public SimplePacman(PacmanAINeural.SimplePacmanController controller, bool fastNoDraw, Random rand = null)
         {
             InitializeComponent();
             KeyDown += new KeyEventHandler(keyDownHandler);
@@ -81,14 +82,42 @@ namespace SharpNeatExperiments.Pacman
 
             Application.ApplicationExit += new EventHandler(closeHandler);
 
+            if (rand == null) {
+                Random = new Random();
+            } else {
+                Random = rand;
+            }
             this.fastNoDraw = fastNoDraw;
             if (fastNoDraw) {
                 loop();
             } else {
-                int myData = 0; // dummy data
+                loopWithWaiting();
+                /*int myData = 0; // dummy data
                 tickHandler = new TimerEventHandler(tick);
-                fastTimer = timeSetEvent(fastNoDraw ? 1 : 20, fastNoDraw? 1:20, tickHandler, ref myData, 1);
+                fastTimer = timeSetEvent(fastNoDraw ? 1 : 20, fastNoDraw? 1:20, tickHandler, ref myData, 1);*/
             }
+        }
+
+        void loopWithWaiting() {
+            /*while (true) {
+                myTick(true);
+                Thread.Sleep(1);
+            }
+            closingStuff();*/
+            Thread extraWindowThread;
+            extraWindowThread = new System.Threading.Thread(delegate()
+            {
+                while (myTick(true))
+                {
+                    //int myData = 0;
+                    //myTick(true);
+                    //tick(0, 0, ref myData, 0, 0);
+                    Thread.Sleep(20);
+                }
+                closingStuff();
+                CloseGame();
+            });
+            extraWindowThread.Start();
         }
 
         void loop() {

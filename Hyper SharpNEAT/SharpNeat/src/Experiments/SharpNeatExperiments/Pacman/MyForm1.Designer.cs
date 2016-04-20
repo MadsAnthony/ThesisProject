@@ -36,7 +36,7 @@
             // 
             this.Picture.Location = new System.Drawing.Point(0, 0);
             this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(605, 480);
+            this.Picture.Size = new System.Drawing.Size(644, 562);
             this.Picture.TabIndex = 0;
             this.Picture.TabStop = false;
             // 
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 482);
+            this.ClientSize = new System.Drawing.Size(656, 574);
             this.Controls.Add(this.Picture);
             this.Name = "MyForm1";
             this.Text = "Form1";

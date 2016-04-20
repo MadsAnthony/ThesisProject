@@ -105,15 +105,20 @@ namespace SharpNeatExperiments.Pacman
         }
 
         void DrawNet() {
+
             if (neatGenome == null) return;
-            int networkXOffset = 200;
+            int networkXOffset = 250;
             int networkYOffset = 350;
             int spread = 200;
             int radius = 10;
             var neurons = neatGenome.NeuronGeneList;
             var connections = neatGenome.ConnectionGeneList;
+
+            System.Drawing.Rectangle rectangleBounds = new System.Drawing.Rectangle(networkXOffset - spread, networkYOffset - spread, spread * 2, spread * 2);
+            g.DrawRectangle(new System.Drawing.Pen(Color.Red), rectangleBounds);
+
             foreach (var neuron in neurons) {
-                System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(networkXOffset + (int)(neuron.XValue * spread), networkYOffset + (int)(neuron.YValue * spread), radius, radius);
+                System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(networkXOffset + (int)(neuron.XValue * spread), networkYOffset - (int)(neuron.YValue * spread), radius, radius);
                 var color = System.Drawing.Color.Aquamarine;
                 if (neuron.NeuronType == SharpNeatLib.NeuralNetwork.NeuronType.Output) {
                     color = System.Drawing.Color.Red;
@@ -126,7 +131,7 @@ namespace SharpNeatExperiments.Pacman
                 {
                     color = System.Drawing.Color.Green;
                 }
-                if (neuron.InnovationId == 7 || neuron.InnovationId == 4) {
+                /*if (neuron.InnovationId == 7 || neuron.InnovationId == 4) {
                     if (IsWithinThreshold(network.GetOutputSignal(2),network.GetOutputSignal(3), 0.2f)) {
                         color = System.Drawing.Color.White;
                     }
@@ -135,15 +140,15 @@ namespace SharpNeatExperiments.Pacman
                     if (IsWithinThreshold(network.GetOutputSignal(2),network.GetOutputSignal(4), 0.2f)) {
                         color = System.Drawing.Color.White;
                     }
-                }
+                }*/
                 Pen pen = new System.Drawing.Pen(color);
                 g.DrawEllipse(pen, rectangle);
             }
             foreach (var connection in connections) {
                 var src = GetNeuronWithNeuronId(neurons, connection.SourceNeuronId);//neurons[(int)connection.SourceNeuronId];
                 var dst = GetNeuronWithNeuronId(neurons, connection.TargetNeuronId);//neurons[(int)connection.TargetNeuronId];
-                Point srcPoint = new Point((int)(networkXOffset + radius / 2f + src.XValue * spread), (int)(networkYOffset + radius / 2f + src.YValue * spread));
-                Point dstPoint = new Point((int)(networkXOffset + radius / 2f + dst.XValue * spread), (int)(networkYOffset + radius / 2f + dst.YValue * spread));
+                Point srcPoint = new Point((int)(networkXOffset + radius / 2f + src.XValue * spread), (int)(networkYOffset + radius / 2f - src.YValue * spread));
+                Point dstPoint = new Point((int)(networkXOffset + radius / 2f + dst.XValue * spread), (int)(networkYOffset + radius / 2f - dst.YValue * spread));
                 g.DrawLine(System.Drawing.Pens.Aquamarine, srcPoint, dstPoint);
             }
         }

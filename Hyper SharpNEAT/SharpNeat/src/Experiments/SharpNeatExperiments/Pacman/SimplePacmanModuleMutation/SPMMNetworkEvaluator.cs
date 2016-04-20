@@ -12,7 +12,7 @@ using PacmanAI;
 
 namespace SharpNeatLib.Experiments
 {
-    class SUPGONLYNetworkEvaluator : INetworkEvaluator
+    class SPMMNetworkEvaluator : INetworkEvaluator
     {
         //public static PointF[] foodLocations;
 
@@ -28,7 +28,7 @@ namespace SharpNeatLib.Experiments
 
         Maths.FastRandom rand = new SharpNeatLib.Maths.FastRandom();
 
-        public static PacmanSubstrateSUPG substrate = new PacmanSubstrateSUPG(4, 5, 5, HyperNEATParameters.substrateActivationFunction);
+        public static SPMMSubstrate substrate = new SPMMSubstrate(6, 4, 6, HyperNEATParameters.substrateActivationFunction);
 
         public static Stats postHocAnalyzer(NeatGenome.NeatGenome genome)
         {
@@ -76,52 +76,7 @@ namespace SharpNeatLib.Experiments
 
 
         public double[] EvaluateNetworkMultipleObjective(INetwork network) {
-            INetwork tempNet = null;
-            NeatGenome.NeatGenome tempGenome = null;
-
-            tempGenome = substrate.generateGenome(network);
-
-            tempNet = tempGenome.Decode(null);
-            SharpNeatExperiments.Pacman.MyForm1.neatGenome = tempGenome;
-            SharpNeatExperiments.Pacman.MyForm1.network = tempNet;
-
-            double retries = 1;
-            double totalFitness = 0;
-            double totalEatScore = 0;
-            double totalLifeScore = 0;
-            for (int i = 0; i < retries; i++)
-            {
-                var pacman = new PacmanAINeural.NeuralPacmanSUPG();
-                //pacman.SetBrain(network);
-                pacman.SetBrain(tempNet, true, tempGenome, network, substrate.getSUPGMap());
-
-                var simplePacmanController = new PacmanAINeural.SimplePacmanController();
-                simplePacmanController.SetBrain(tempNet, true, tempGenome, network, substrate.getSUPGMap());
-
-                Visualizer visualizer = null;
-                SharpNeatExperiments.Pacman.SimplePacman simplePacman = null;
-                Thread visualizerThread;
-
-                visualizerThread = new System.Threading.Thread(delegate()
-                {
-                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, false);
-                    System.Windows.Forms.Application.Run(simplePacman);
-
-                    //visualizer = new Visualizer(pacman);
-                    //System.Windows.Forms.Application.Run(visualizer);
-                });
-                visualizerThread.Start();
-                visualizerThread.Join();
-
-                totalFitness += simplePacman.returnGameScore;
-                totalEatScore += simplePacman.returnEatScore;
-                totalLifeScore += simplePacman.returnLifeScore;
-            }
-            double avgFitness = totalFitness / retries;
-            double avgEatScore = totalEatScore / retries;
-            double avgLifeScore = totalLifeScore / retries;
-
-            return new double[] { avgFitness, avgEatScore, avgLifeScore };
+            return new double[] { 0, 0, 0 };
         }
 
         public double EvaluateNetwork(INetwork network)
@@ -135,49 +90,30 @@ namespace SharpNeatLib.Experiments
             SharpNeatExperiments.Pacman.MyForm1.neatGenome = tempGenome;
             SharpNeatExperiments.Pacman.MyForm1.network = tempNet;
 
-            double retries = 1;
+            double retries = 5;
             double totalFitness = 0;
             for (int i = 0; i < retries; i++) {
-                var pacman = new PacmanAINeural.NeuralPacmanSUPG();
-                //pacman.SetBrain(network);
-                pacman.SetBrain(tempNet, true, tempGenome, network, substrate.getSUPGMap());
+                var simplePacmanController = new PacmanAINeural.SPMMController();
+                simplePacmanController.SetBrain(tempNet, false, tempGenome, network, substrate.getSUPGMap());
 
-                var supgonlyController = new PacmanAINeural.SUPGONLYController();
-                supgonlyController.SetBrain(tempNet, true, tempGenome, network, substrate.getSUPGMap());
-
+                SharpNeatExperiments.Pacman.SimplePacman simplePacman = null;
                 Thread visualizerThread;
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    int tmpCounter = 0;
-                    while (tmpCounter < 200)
-                    {
-                        //supgonlyController.dummyMasterFreqValue = (float)Math.Sin(tmpCounter*0.1f);
-                        if (tmpCounter%50 == 0) {
-                            supgonlyController.makeAChangeInMasterFreq();
-                        }
-                        if (tmpCounter == 80)
-                        {
-                            //supgonlyController.makeAChangeInMasterFreq();
-                        }
-                        supgonlyController.Think();
-                        /*simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController);
-                        System.Windows.Forms.Application.Run(simplePacman);*/
-
-                        //visualizer = new Visualizer(pacman);
-                        //System.Windows.Forms.Application.Run(visualizer);
-                        //Thread.Sleep(50);
-                        tmpCounter++;
+                    bool fastNoDraw = true;
+                    simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, fastNoDraw, new Random(i));
+                    if (!fastNoDraw) {
+                        System.Windows.Forms.Application.Run(simplePacman);
                     }
                 });
                 visualizerThread.Start();
                 visualizerThread.Join();
 
-                totalFitness += supgonlyController.dummyFitness;//simplePacman.returnGameScore;// visualizer.returnGameState;
+                totalFitness += simplePacman.returnGameScore;// visualizer.returnGameState;
             }
             double avgFitness = totalFitness / retries;
 
-            //Console.WriteLine("newEvaluation" + avgFitness);
             return avgFitness;
             /*int time = visualizer.returnGameState;
             return (double)time;//fitness;*/

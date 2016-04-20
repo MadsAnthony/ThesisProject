@@ -1,4 +1,4 @@
-<genome id="1365" species-id="0" age="1" fitness="128,00" objective-fitness="128,00">
+<genome id="1364" species-id="0" age="1" fitness="377,02" objective-fitness="377,02">
   <neurons>
     <neuron id="0" type="bias" activationFunction="NullFn" />
     <neuron id="1" type="in" activationFunction="NullFn" />
@@ -8,30 +8,30 @@
     <neuron id="5" type="in" activationFunction="NullFn" />
     <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
     <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
-    <neuron id="226" type="hid" activationFunction="Linear" />
-    <neuron id="251" type="hid" activationFunction="Gaussian" />
-    <neuron id="406" type="hid" activationFunction="Sine" />
-    <neuron id="513" type="hid" activationFunction="Sine" />
-    <neuron id="566" type="hid" activationFunction="Sine" />
-    <neuron id="671" type="hid" activationFunction="Sine" />
-    <neuron id="737" type="hid" activationFunction="Gaussian" />
-    <neuron id="776" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="46" type="hid" activationFunction="Linear" />
+    <neuron id="102" type="hid" activationFunction="Gaussian" />
+    <neuron id="111" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="414" type="hid" activationFunction="Linear" />
+    <neuron id="670" type="hid" activationFunction="BipolarSigmoid" />
   </neurons>
   <connections>
-    <connection innov-id="12" src-id="4" tgt-id="6" weight="-0,26532250083982944" />
-    <connection innov-id="16" src-id="2" tgt-id="7" weight="0,33436021115630865" />
-    <connection innov-id="17" src-id="3" tgt-id="7" weight="-1,4976441627368331" />
-    <connection innov-id="227" src-id="0" tgt-id="226" weight="1" />
-    <connection innov-id="252" src-id="2" tgt-id="251" weight="1" />
-    <connection innov-id="408" src-id="406" tgt-id="7" weight="-0,692251359578222" />
-    <connection innov-id="514" src-id="5" tgt-id="513" weight="1" />
-    <connection innov-id="515" src-id="513" tgt-id="406" weight="1" />
-    <connection innov-id="568" src-id="566" tgt-id="7" weight="-0,48231025971472263" />
-    <connection innov-id="672" src-id="3" tgt-id="671" weight="1" />
-    <connection innov-id="673" src-id="671" tgt-id="6" weight="0,43832958675920963" />
-    <connection innov-id="738" src-id="251" tgt-id="737" weight="1" />
-    <connection innov-id="739" src-id="737" tgt-id="6" weight="0,18310914700850844" />
-    <connection innov-id="777" src-id="226" tgt-id="776" weight="1" />
-    <connection innov-id="778" src-id="776" tgt-id="566" weight="1" />
+    <connection innov-id="8" src-id="0" tgt-id="6" weight="-0,86907802149653435" />
+    <connection innov-id="9" src-id="1" tgt-id="6" weight="-0,60635675070807338" />
+    <connection innov-id="10" src-id="2" tgt-id="6" weight="0,59616028424352407" />
+    <connection innov-id="12" src-id="4" tgt-id="6" weight="-0,36430634558200836" />
+    <connection innov-id="13" src-id="5" tgt-id="6" weight="1,35085734911263" />
+    <connection innov-id="15" src-id="1" tgt-id="7" weight="-1,3429465633817017" />
+    <connection innov-id="17" src-id="3" tgt-id="7" weight="-1,4675522893667221" />
+    <connection innov-id="18" src-id="4" tgt-id="7" weight="-0,299653313588351" />
+    <connection innov-id="47" src-id="3" tgt-id="46" weight="1" />
+    <connection innov-id="103" src-id="46" tgt-id="102" weight="1" />
+    <connection innov-id="104" src-id="102" tgt-id="6" weight="-1,1016829032450914" />
+    <connection innov-id="112" src-id="3" tgt-id="111" weight="0,96010341867804527" />
+    <connection innov-id="113" src-id="111" tgt-id="7" weight="-1,4675522893667221" />
+    <connection innov-id="415" src-id="5" tgt-id="414" weight="1" />
+    <connection innov-id="416" src-id="414" tgt-id="6" weight="1,35085734911263" />
+    <connection innov-id="671" src-id="5" tgt-id="670" weight="1" />
+    <connection innov-id="672" src-id="670" tgt-id="102" weight="1,4560221042484045" />
+    <connection innov-id="810" src-id="6" tgt-id="6" weight="0,11705811973661184" />
   </connections>
 </genome>
