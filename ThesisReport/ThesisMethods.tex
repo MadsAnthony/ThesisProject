@@ -74,10 +74,10 @@ ANN is a model that is inspired by biological neural networks - as observed in t
 \caption{[ref http://ufldl.stanford.edu]}
 \end{figure}
 \\
-As seen in figure (x), the neuron takes a number of inputs given by vector $ X $ and sums them together. It then inputs the sum into the the function $ h $ - also called an activation function. The idea with the activation function is... [ref].
+As seen in figure (x), the neuron takes a number of inputs given by vector $ X $ and add them together. It then inputs the sum into the the function $ h $ - also called an activation function. The idea with the activation function is... [ref].
 \\
 \\
-The activation function can vary depending on the setup but often a sigmoid function is chosen. The one input to the neuron that is 1, is called a bias and can be grouped together with the vector $ X $ by setting $ X_0 = 1 $.
+The activation function can vary depending on the setup but often a sigmoid function is chosen. The one input to the neuron that is 1, is a bias and can be grouped together with the vector $ X $ by setting $ X_0 = 1 $.
 \\
 \\
 With the definition of a single neuron we can now connect them together with other neurons to get a larger network of neurons. However before we do that, we rewrite the input vector $ X $ as the product of a weight $ w $ and the output $ z $ of another neuron.
@@ -88,14 +88,14 @@ With the definition of a single neuron we can now connect them together with oth
 \end{figure}
 \\
 \\
-Each neuron can then be computed in the following.
+Each neuron can then be computed in the following way.
 \begin{equation}
 z_k = h\Big(\sum\limits_{j}{w_{kj} z_j}\Big)
 \end{equation}
 ANN has three different types of layers as shown in figure (x). An input layer that takes the input often along with a bias. A hidden layer that connects the input layer to either the output or a new hidden layer. An output layer then uses the connections from the hidden (and input - if any connection) layer to produce the output. 
 \\
 \\
-It's possible to have cyclic connections, ex. a neuron connected to itself, but the networks I train in this project is feed forward and don't have any cycles. 
+It's possible to have cyclic connections, ex. a neuron connected to itself, but I won't be focusing on these, as the networks I train in this project is feed forward and don't have any cycles. 
 \\
 \\
 Neural networks can also be used in standard classification task by feeding the network an input and compare the output with a target output using an error term. This error term can then be minimized by setting the weights using the back propagation algorithm. However in neuroevolution we don't set the weights using back propagation, but instead let an evolutionary algorithm decide.
@@ -103,6 +103,7 @@ Neural networks can also be used in standard classification task by feeding the 
 Now that I've given a brief description of both evolutionary algorithms and neural networks, it's time to put the things together and use it to evolve neural networks. To evolve the networks I use NeuroEvolution of Augmenting Topologies (NEAT), since it manages to handle many of the problems that arise when evolving neural networks. Unlike other algorithms that has a fixed structure (ex. 1 hidden layer), NEAT starts of with a minimum structure and evolves by the use of historical markings and speciation. A more detailed explanation of how NEAT works is explained in the following.
 \\
 \\
+\subsubsection{Representation and crossover}
 NEAT uses a direct encoding by letting the genotype have two lists representing the network, one for the nodes and another for the connections. The reason NEAT is using a direct encoding instead of an indirect, is that an indirect encoding tend to bias the search in unpredictable ways [stanley p. 102].
 \\
 \\
@@ -112,16 +113,26 @@ One of the problems with doing NeuroEvolution is dealing with the Competing Conv
 To deal with this problem along with the problem of matching two structurally different networks, NEAT introduces a historical marking for each gene. This is done to keep track of all the genes, and match those that share the same origin. An example of this is given in the following.
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.5]{NEAT_Matching}
+\includegraphics[scale=0.52]{NEAT_Matching}
 \caption{[ref - don't use this]}
 \end{figure}
 \\
+NEAT has two types of structural mutation, adding a new node or adding a new connection. When adding a new connection, a new connection gene is added to the end of the list and gets assigned the next innovation number. If another genotype gets a similar connection during the same generation, NEAT will give it the same innovation number. When adding a new node, a chosen connection gene will be disabled and split into two new connection with each new connection having new innovation numbers.
 \\
-Protecting structural innovation.
+\\
+When crossing two genotypes, the genes that have identical innovation numbers are matched up, and those that don't match up is categorised into either disjoint or excess genes.  The disjoint genes are those that don't match in the middle and the excess are those that don't match in the end. For the matching genes the offspring chooses randomly from both parents, and for the disjoint and excess genes the more fit parent is chosen.
+\subsubsection{Species}
+Another key feature of NEAT is the introduction  of species. The idea of having different species is to protect structural innovation. Since an initial change in topology will likely decrease the fitness, the network would most likely not survive the next generation. Therefore NEAT groups the networks into different niches to protect different topologies. To do this, NEAT uses the number of excess $ E $ and disjoint $ D $ genes as a measure for their compatibility distance. The compatibility distance is normalized with regards to the number of genes $ N $ and also uses the difference in matching weights $ \overline{W} $. The three coefficents $ c_1, c_2, c_3$ is used to weight the importance of the three factors [stanley p. 110].
+\begin{equation}
+\delta = \dfrac{c_1E}{N}+\dfrac{c_2D}{N}+c_3\cdot\overline{W}
+\end{equation}
+Each species is represented by a random genome inside the species. A genome $ g $ is placed into the first species it's compatible to, if the the distance measure $ \delta $ between $ g $ and the representive genome for that species is within a certain threshold $ \delta_t $. If $ g $ is not compatible with any species, a new species will be created with $ g $ as a representative.
 \\
 \\
-Minimum structure.
+To avoid letting one species take over the entire populations, NEAT uses an explicit fitness sharing. This is done by introducing an adjusted fitness $ f_i'$ that is the normal fitness $ f_i $ divided by the number of genomes in the species that the target genome exist in. For reproducing the species first eliminate the lowest performing genomes in the population and then let the entire population be replaced by the new offspring.
+\subsubsection{Minimum structure}
+NEAT has an initial structure of no hidden neurons, and  so new topology is gained with mutation. This has the advantages of the dimensionality staying low, and strengthen the analogy to nature, where something simple gets evolved into something more complex during evolution.
 \subsection{HyperNEAT}
-\subsection{Compositional Pattern Producing Network (CPPN)}
+\subsubsection{Compositional Pattern Producing Network (CPPN)}
 \subsection{Single Unit Pattern Generator (SUPG)}
 \end{document}
