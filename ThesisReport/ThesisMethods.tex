@@ -113,7 +113,7 @@ One of the problems with doing NeuroEvolution is dealing with the Competing Conv
 To deal with this problem along with the problem of matching two structurally different networks, NEAT introduces a historical marking for each gene. This is done to keep track of all the genes, and match those that share the same origin. An example of this is given in the following.
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.52]{NEAT_Matching}
+\includegraphics[scale=0.6]{NEAT_Matching}
 \caption{[ref - don't use this]}
 \end{figure}
 \\
@@ -133,6 +133,25 @@ To avoid letting one species take over the entire populations, NEAT uses an expl
 \subsubsection{Minimum structure}
 NEAT has an initial structure of no hidden neurons, and  so new topology is gained with mutation. This has the advantages of the dimensionality staying low, and strengthen the analogy to nature, where something simple gets evolved into something more complex during evolution.
 \subsection{HyperNEAT}
+HyperNeat extends the NEAT method, by encoding the network by another network called a Compositional Pattern Producing Network (CPPN) which is then evolved using NEAT. HyperNeat uses a substrate which usually is defined as a 2 dimensional plane that ranges from -1 to -1 on both x and y axis. You then place the neurons for your final network on the substrate and let the connection weights be determined by querying the CPPN.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.3]{HyperNeatSubstrate}
+\caption{[ref don't use this]}
+\end{figure}
+\\
+To get the weight between neuron $ a $ and neuron $ b $, you use a's position in the substrate $a_x, a_y$ as the first two parameters, and b's position $ b_x, b_y $ as the last two parameters for the CPPN. The output from the CPPN is then used as the weight between neuron $ a $ and $ b $. Figure x shows an example of this.
 \subsubsection{Compositional Pattern Producing Network (CPPN)}
+CPPN uses an abstraction that is based on patterns that are typical seen in nature. This include: repetition, repetition with variation, symmetry, imperfect symmetry, elaborated regularity and preservation of regularity. As an example the human body is symmetric along the center of the body and has repetition with variation for the fingers on hands and feet.
+\\ \\
+With development encoding you use local interaction and temporal unfolding in simulations to mimic the development in nature. However with CPPN the development encoding is abstracted away and CPPN are instead using functions to achieve the patterns mentioned above. The idea is that the phenotype can be viewed as a distribution of points in a multidimensional Cartesian space and that any phenotype produced through a temporal progression (development encoding) is possible to be represented using a functional description. To get symmetry, a Gaussian function or $ f(x) = abs(x) $ can be used (since they are mirrored around the y-axis). For repetition, functions like sin(x) or modulus can be used. 
+\\ \\
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.4]{CompositionOfFunctions}
+\caption{[ref don't use this]}
+\end{figure}
+\\
+These functions can then be put together in composition to get more advanced phenotypes. This is done using CPPN-NEAT which is a modified version of the NEAT algorithm. The reason that NEAT can be modified is that artificial neural networks (ANN) and CPPN structurally are the same.
 \subsection{Single Unit Pattern Generator (SUPG)}
 \end{document}
