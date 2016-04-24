@@ -28,6 +28,7 @@ namespace PacmanAINeural
         public bool useSUPG;
         public NeatGenome genome;
         public INetwork cppn;
+        public Substrate Substrate;
         int[] triggerMap;
 
         public SimplePacmanController(/*SharpNeatExperiments.Pacman.SimplePacman gameState*/) {
@@ -37,13 +38,14 @@ namespace PacmanAINeural
 
         public void CheckForHit() {
             foreach (var enemy in gameState.enemies) {
-                if (IsWithinThreshold(enemy.pos, pos, 5) && !enemy.isSleeping) {
+                if (IsWithinThreshold(enemy.pos, pos, 5) && !enemy.isSleeping && !enemy.isGettingReady) {
                     if (enemy.isEdible) {
                         gameState.score += 1;
                         gameState.eatScore += 1;
                     } else {
                         //gameState.CloseGame();
-                        gameState.score -= 5;
+                        //gameState.timer = gameState.timeOut;
+                        gameState.score -= 1;
                         gameState.lifeScore -= 1;
                     }
                     enemy.Sleep();
@@ -205,11 +207,11 @@ namespace PacmanAINeural
 
                 if (neuron.FirstStepComplete)
                 {
-                    activation = cppn.GetOutputSignal(0);
+                    activation = cppn.GetOutputSignal(1);
                     supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter] = activation;  // only cache the output if the first step is complete
                 }
                 else
-                    activation = cppn.GetOutputSignal(0);
+                    activation = cppn.GetOutputSignal(1);
 
             }
             else
@@ -364,13 +366,13 @@ namespace PacmanAINeural
 
         public int[] GetClosestEnemies2(Direction dir)
         {
-            int[] minDistances = new int[4];
+            int[] minDistances = new int[gameState.enemies.Length];
             for (int i = 0; i < gameState.enemies.Length; i++)
             {
                 if (gameState.enemies[i].isSleeping)
                 {
-                    //minDistances[i] = 200; // set to far away.
-                    //continue;
+                    minDistances[i] = 200; // set to far away.
+                    continue;
                 }
                 Point enemyPos = gameState.enemies[i].pos;
                 Point tmpV = new Point(pos.X - enemyPos.X, pos.Y - enemyPos.Y);
@@ -379,7 +381,7 @@ namespace PacmanAINeural
                 {
                     case Direction.Up:
                         if (tmpV.Y <= 0) {
-                            minDistances[i] = (gameState.height - Math.Abs(tmpV.Y)) + Math.Abs(tmpV.X);
+                            minDistances[i] = (gameState.height - Math.Abs(tmpV.Y)) + Math.Abs(tmpV.X) - 1;
                         }
                         else {
                             minDistances[i] = Math.Abs(tmpV.Y) + Math.Abs(tmpV.X);
@@ -387,7 +389,7 @@ namespace PacmanAINeural
                         break;
                     case Direction.Down:
                         if (tmpV.Y >= 0) {
-                            minDistances[i] = (gameState.height - Math.Abs(tmpV.Y)) + Math.Abs(tmpV.X);
+                            minDistances[i] = (gameState.height - Math.Abs(tmpV.Y)) + Math.Abs(tmpV.X) - 1;
                         }
                         else {
                             minDistances[i] = Math.Abs(tmpV.Y) + Math.Abs(tmpV.X);
@@ -395,7 +397,7 @@ namespace PacmanAINeural
                         break;
                     case Direction.Left:
                         if (tmpV.X <= 0) {
-                            minDistances[i] = (gameState.width - Math.Abs(tmpV.X)) + Math.Abs(tmpV.Y);
+                            minDistances[i] = (gameState.width - Math.Abs(tmpV.X)) + Math.Abs(tmpV.Y) - 1;
                         }
                         else {
                             minDistances[i] = Math.Abs(tmpV.X) + Math.Abs(tmpV.Y);
@@ -403,7 +405,7 @@ namespace PacmanAINeural
                         break;
                     case Direction.Right:
                         if (tmpV.X >= 0) {
-                            minDistances[i] = (gameState.width - Math.Abs(tmpV.X)) + Math.Abs(tmpV.Y);
+                            minDistances[i] = (gameState.width - Math.Abs(tmpV.X)) + Math.Abs(tmpV.Y) - 1;
                         }
                         else {
                             minDistances[i] = Math.Abs(tmpV.X) + Math.Abs(tmpV.Y);

@@ -27,6 +27,7 @@ namespace SharpNeatExperiments.Pacman
         Point[] points1;
         Point[] points2;
         Point[] pointsMaster;
+        public static List<uint> NeuronsToLightUp;
 
         public static double freq1;
         public static double freq2;
@@ -46,6 +47,7 @@ namespace SharpNeatExperiments.Pacman
             tickHandler = new TimerEventHandler(tick);
             fastTimer = timeSetEvent(50, 50, tickHandler, ref myData, 1);
 
+            NeuronsToLightUp = new List<uint>();
             Application.ApplicationExit += new EventHandler(closeHandler);
             InitPoints();
         }
@@ -131,6 +133,15 @@ namespace SharpNeatExperiments.Pacman
                 {
                     color = System.Drawing.Color.Green;
                 }
+                /*var tmpneuronsToLightUp = NeuronsToLightUp.ToArray();
+                foreach (var neuronToLightUp in tmpneuronsToLightUp) {
+                    Console.WriteLine(neuron.InnovationId);
+                    if (neuron.InnovationId == neuronToLightUp) {
+                        Console.WriteLine(neuron.InnovationId);
+                        color = System.Drawing.Color.White;
+                        break;
+                    }
+                }*/
                 /*if (neuron.InnovationId == 7 || neuron.InnovationId == 4) {
                     if (IsWithinThreshold(network.GetOutputSignal(2),network.GetOutputSignal(3), 0.2f)) {
                         color = System.Drawing.Color.White;
@@ -144,6 +155,7 @@ namespace SharpNeatExperiments.Pacman
                 Pen pen = new System.Drawing.Pen(color);
                 g.DrawEllipse(pen, rectangle);
             }
+
             foreach (var connection in connections) {
                 var src = GetNeuronWithNeuronId(neurons, connection.SourceNeuronId);//neurons[(int)connection.SourceNeuronId];
                 var dst = GetNeuronWithNeuronId(neurons, connection.TargetNeuronId);//neurons[(int)connection.TargetNeuronId];

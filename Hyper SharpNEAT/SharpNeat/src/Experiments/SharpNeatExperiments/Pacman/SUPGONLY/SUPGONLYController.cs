@@ -163,11 +163,11 @@ namespace PacmanAINeural
                         }*/
                         if (neuron.InnovationId == 7)
                         {
-                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron,10);//0.7f;// dummySUPGActivation(neuron);
+                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron, cppnIterations);//0.7f;// dummySUPGActivation(neuron);
                         }
                         if (neuron.InnovationId == 8)
                         {
-                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron,10);//0.3f;// dummySUPGActivation(neuron);
+                            overrideSignals[neuron.InnovationId] = getSUPGActivation(neuron, cppnIterations);//0.3f;// dummySUPGActivation(neuron);
                         }
                     }
                     ((FloatFastConcurrentNetwork)network).OverrideSignals = overrideSignals;
@@ -208,11 +208,11 @@ namespace PacmanAINeural
 
                 if (neuron.FirstStepComplete)
                 {
-                    activation = cppn.GetOutputSignal(0);
+                    activation = cppn.GetOutputSignal(1);
                     supgOutputs[neuron.InnovationId - offset, neuron.TimeCounter] = activation;  // only cache the output if the first step is complete
                 }
                 else
-                    activation = cppn.GetOutputSignal(0);
+                    activation = cppn.GetOutputSignal(1);
 
             }
             else

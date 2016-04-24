@@ -29,13 +29,15 @@ namespace PacmanAINeural
             outputForDir[3] = 0;
             Direction[] dirs = new[] { Direction.Up, Direction.Down, Direction.Left, Direction.Right };
             foreach (Direction dir in dirs) {
+                brain.ClearSignals();
                 brain.SetInputSignal(0, 1); // bias
                 var closestEnemies = GetClosestEnemies2(dir);
                 brain.SetInputSignal(1, Math.Min(closestEnemies[0], 100) / 100f);
                 brain.SetInputSignal(2, Math.Min(closestEnemies[1], 100) / 100f);
                 brain.SetInputSignal(3, Math.Min(closestEnemies[2], 100) / 100f);
-                brain.SetInputSignal(4, Math.Min(closestEnemies[3], 100) / 100f);
-                brain.SetInputSignal(5, gameState.enemies[0].isEdible ? 1 : -1);
+                brain.SetInputSignal(4,1);
+                //brain.SetInputSignal(4, Math.Min(closestEnemies[3], 100) / 100f);
+                brain.SetInputSignal(5, gameState.enemies[0].isEdible ? 1 : 0);
                 brain.MultipleSteps(10);
                 
                 outputForDir[(int)dir] = brain.GetOutputSignal(0);

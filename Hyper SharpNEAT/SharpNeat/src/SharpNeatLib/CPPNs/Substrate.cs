@@ -22,7 +22,10 @@ namespace SharpNeatLib.CPPNs
         public static double sqrt2 = Math.Sqrt(2);
         public IActivationFunction activationFunction;
         public NeuronGeneList neurons;
-        
+
+        public NeatGenome.NeatGenome CachedGenome1;
+        public NeatGenome.NeatGenome CachedGenome2;
+
         public Substrate()
         {
         }

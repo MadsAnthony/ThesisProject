@@ -18,6 +18,7 @@ namespace PacmanAINeural
         public Point pos;
         public bool isEdible = true;
         public bool isSleeping;
+        public bool isGettingReady;
         int timer = 0;
         public int reactionTime = 10;
         Point controllerPos;
@@ -29,7 +30,7 @@ namespace PacmanAINeural
 
         public void Move() {
             timer ++;
-            if (isEdible || isSleeping) return;
+            if (isGettingReady || isSleeping) return;
             if (timer>reactionTime) {
                 controllerPos = gameState.controller.pos;
                 // check if it's faster to go through the edge.
@@ -49,17 +50,34 @@ namespace PacmanAINeural
                 timer = 0;
             }
             var dirV = new Point(controllerPos.X - pos.X, controllerPos.Y - pos.Y);
-            if (Math.Abs(dirV.X)<Math.Abs(dirV.Y)) {
-                if (dirV.Y<0) {
-                    SetDirection(Direction.Up);
+            if (!isEdible) {
+                if (Math.Abs(dirV.X)<Math.Abs(dirV.Y)) {
+                    if (dirV.Y<0) {
+                        SetDirection(Direction.Up);
+                    } else {
+                        SetDirection(Direction.Down);
+                    }
                 } else {
-                    SetDirection(Direction.Down);
+                    if (dirV.X<0) {
+                        SetDirection(Direction.Left);
+                    } else {
+                        SetDirection(Direction.Right);
+                    }
                 }
             } else {
-                if (dirV.X<0) {
-                    SetDirection(Direction.Left);
+                if (timer%2 == 0) return;
+                if (Math.Abs(dirV.X)<Math.Abs(dirV.Y)) {
+                    if (dirV.Y<0) {
+                        SetDirection(Direction.Down);
+                    } else {
+                        SetDirection(Direction.Up);
+                    }
                 } else {
-                    SetDirection(Direction.Right);
+                    if (dirV.X<0) {
+                        SetDirection(Direction.Right);
+                    } else {
+                        SetDirection(Direction.Left);
+                    }
                 }
             }
         }

@@ -30,9 +30,6 @@ class SPCSubstrate : Substrate
             Point point = GetCustomPos(neuron.InnovationId);
             neuron.XValue = point.X;
             neuron.YValue = point.Y;
-            if (neuron.NeuronType != NeuronType.Input) {
-                neuron.ActivationFunction = new SteepenedSigmoid();
-            }
         }
 
         ConnectionGeneList connections = new ConnectionGeneList((int)((inputCount * hiddenCount) + (hiddenCount * outputCount)));
@@ -42,29 +39,59 @@ class SPCSubstrate : Substrate
         int iterations = 2 * (network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount)) + 1;
 
         // Connections from input to hidden
-        for (uint source = 1; source < inputCount-1; source++)
+        for (uint source = 0; source < inputCount; source++)
         {
-            connections.Add(new ConnectionGene(connectionCounter++, source, 7, getActivation(network, source, 7, newNeurons)));
+            QueryConnection(network, connections, connectionCounter++, source, 7, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 8, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 9, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 10, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 11, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 12, newNeurons);
+            /*connections.Add(new ConnectionGene(connectionCounter++, source, 7, getActivation(network, source, 7, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, source, 8, getActivation(network, source, 8, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, source, 9, getActivation(network, source, 9, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, source, 10, getActivation(network, source, 10, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, source, 11, getActivation(network, source, 11, newNeurons)));
-            connections.Add(new ConnectionGene(connectionCounter++, source, 12, getActivation(network, source, 12, newNeurons)));
+            connections.Add(new ConnectionGene(connectionCounter++, source, 12, getActivation(network, source, 12, newNeurons)));*/
+            // output
+            //QueryConnection(network, connections, connectionCounter++, source, 6, newNeurons);
         }
         // Connection from input to output
-        connections.Add(new ConnectionGene(connectionCounter++, 0, 6, getActivation(network, 0, 6, newNeurons)));
-        connections.Add(new ConnectionGene(connectionCounter++, 5, 6, getActivation(network, 5, 6, newNeurons)));
+        QueryConnection(network, connections, connectionCounter++, 0, 6, newNeurons);
+        QueryConnection(network, connections, connectionCounter++, 5, 6, newNeurons);
+        /*connections.Add(new ConnectionGene(connectionCounter++, 0, 6, getActivation(network, 0, 6, newNeurons)));
+        connections.Add(new ConnectionGene(connectionCounter++, 5, 6, getActivation(network, 5, 6, newNeurons)));*/
         // Connections from hidden to output
         for (uint source = 0; source < hiddenCount; source++)
         {
             uint tmpSource = source + inputCount + outputCount;
-            connections.Add(new ConnectionGene(connectionCounter++, tmpSource, 6, getActivation(network, tmpSource, 6, newNeurons)));
+            QueryConnection(network, connections, connectionCounter++, tmpSource, 6, newNeurons);
+            //connections.Add(new ConnectionGene(connectionCounter++, tmpSource, 6, getActivation(network, tmpSource, 6, newNeurons)));
             /*connections.Add(new ConnectionGene(connectionCounter++, tmpSource, 7, getActivation(network, tmpSource, 7, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, tmpSource, 8, getActivation(network, tmpSource, 8, newNeurons)));
             connections.Add(new ConnectionGene(connectionCounter++, tmpSource, 9, getActivation(network, tmpSource, 9, newNeurons)));*/
         }
 
         return new SharpNeatLib.NeatGenome.NeatGenome(0, newNeurons, connections, (int)inputCount, (int)outputCount);
+    }
+
+    void QueryConnection(INetwork network, ConnectionGeneList connections, uint connectionCounter, uint neuron1id, uint neuron2id, NeuronGeneList newNeurons)
+    {
+        network.ClearSignals();
+        //network.SetInputSignal(0, 1);
+        network.SetInputSignal(0, newNeurons[(int)neuron1id].XValue);
+        network.SetInputSignal(1, newNeurons[(int)neuron1id].YValue);
+        network.SetInputSignal(2, newNeurons[(int)neuron2id].XValue);
+        network.SetInputSignal(3, newNeurons[(int)neuron2id].YValue);
+        network.SetInputSignal(4, 1);
+        network.MultipleSteps(10);
+
+        float output = network.GetOutputSignal(0);
+        if (Math.Abs(output) > threshold)
+        {
+            float weight = (float)(((Math.Abs(output) - (threshold)) / (1 - threshold)) * weightRange * Math.Sign(output));
+            connections.Add(new ConnectionGene(connectionCounter, neuron1id, neuron2id, weight));
+        }
     }
 
     double getActivation(INetwork network, uint neuron1id, uint neuron2id, NeuronGeneList newNeurons) {

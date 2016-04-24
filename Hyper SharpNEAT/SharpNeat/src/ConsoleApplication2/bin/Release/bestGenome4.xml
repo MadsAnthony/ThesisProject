@@ -1,4 +1,4 @@
-<genome id="469" species-id="0" age="1" fitness="1000,00" objective-fitness="1000,00">
+<genome id="472" species-id="0" age="1" fitness="1007,00" objective-fitness="1007,00">
   <neurons>
     <neuron id="0" type="bias" activationFunction="NullFn" />
     <neuron id="1" type="in" activationFunction="NullFn" />
@@ -8,16 +8,18 @@
     <neuron id="5" type="in" activationFunction="NullFn" />
     <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
     <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
-    <neuron id="233" type="hid" activationFunction="Sine" />
+    <neuron id="42" type="hid" activationFunction="Gaussian" />
+    <neuron id="102" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="208" type="hid" activationFunction="Linear" />
   </neurons>
   <connections>
-    <connection innov-id="12" src-id="4" tgt-id="6" weight="-0,94252838473767042" />
-    <connection innov-id="13" src-id="5" tgt-id="6" weight="0,34815654996782541" />
-    <connection innov-id="14" src-id="0" tgt-id="7" weight="1,3454983709380031" />
-    <connection innov-id="15" src-id="1" tgt-id="7" weight="-1,1004781569354236" />
-    <connection innov-id="18" src-id="4" tgt-id="7" weight="0,19292833562940359" />
-    <connection innov-id="19" src-id="5" tgt-id="7" weight="-1,1567493807524443" />
-    <connection innov-id="234" src-id="2" tgt-id="233" weight="1" />
-    <connection innov-id="235" src-id="233" tgt-id="7" weight="0,65027866931632161" />
+    <connection innov-id="8" src-id="0" tgt-id="6" weight="-0,57618239242583513" />
+    <connection innov-id="12" src-id="4" tgt-id="6" weight="0,82492840709164739" />
+    <connection innov-id="18" src-id="4" tgt-id="7" weight="1,4968801424838603" />
+    <connection innov-id="44" src-id="42" tgt-id="6" weight="-0,8061422542668879" />
+    <connection innov-id="103" src-id="5" tgt-id="102" weight="1" />
+    <connection innov-id="104" src-id="102" tgt-id="42" weight="1" />
+    <connection innov-id="209" src-id="3" tgt-id="208" weight="1" />
+    <connection innov-id="210" src-id="208" tgt-id="7" weight="-1,3129901625216007" />
   </connections>
 </genome>

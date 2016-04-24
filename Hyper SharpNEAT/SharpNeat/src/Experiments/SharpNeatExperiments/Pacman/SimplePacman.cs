@@ -26,9 +26,9 @@ namespace SharpNeatExperiments.Pacman
         public int height;
         int zoom = 4;
 
-        int timeOut = 1000;
+        public int timeOut = 5000;
         public int timer = 0;
-        int switchTime = 50;
+        int switchTime = 200;
         int taskTimer = 0;
         public int score = 1000;
         public int eatScore = 0;
@@ -49,7 +49,7 @@ namespace SharpNeatExperiments.Pacman
             KeyDown += new KeyEventHandler(keyDownHandler);
             KeyUp += new KeyEventHandler(keyUpHandler);
 
-            keys_down = new bool[4];
+            keys_down = new bool[1];
             key_props = new[] { Keys.Up, Keys.Down, Keys.Left, Keys.Right};
 
             width = Picture.Width / zoom;
@@ -64,7 +64,7 @@ namespace SharpNeatExperiments.Pacman
             }
             this.controller.gameState = this;
 
-            enemies = new PacmanAINeural.SimplePacmanEnemyController[4];
+            enemies = new PacmanAINeural.SimplePacmanEnemyController[3];
 
             for (int i = 0; i<enemies.Length;i++) {
                 enemies[i] = new PacmanAINeural.SimplePacmanEnemyController(this);
@@ -73,8 +73,8 @@ namespace SharpNeatExperiments.Pacman
             controller.pos = new Point(3*width / 8, 3*height / 8);
             enemies[0].pos = new Point(  width / 8,   height / 8);
             enemies[1].pos = new Point(6*width / 8,   height / 8);
-            enemies[2].pos = new Point(  width / 8, 6*height / 8);
-            enemies[3].pos = new Point(6*width / 8, 6*height / 8);
+            /*enemies[2].pos = new Point(  width / 8, 6*height / 8);
+            enemies[3].pos = new Point(6*width / 8, 6*height / 8);*/
 
             //int myData = 0; // dummy data
             /*tickHandler = new TimerEventHandler(tick);
@@ -216,7 +216,8 @@ namespace SharpNeatExperiments.Pacman
         private void CheckIfSwitchTask() {
             if (taskTimer==switchTime) {
                 foreach (var enemy in enemies) {
-                    enemy.isSleeping = true;
+                    enemy.isGettingReady = true;
+                    enemy.isSleeping = false;
                     enemy.isEdible = !enemy.isEdible;
                 }
                 //taskTimer = 0;
@@ -225,7 +226,7 @@ namespace SharpNeatExperiments.Pacman
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.isSleeping = false;
+                    enemy.isGettingReady = false;
                 }
                 /*Random r = new Random();
                 switchTime = r.Next(10, 200);*/
@@ -257,6 +258,9 @@ namespace SharpNeatExperiments.Pacman
             Pen pen = new System.Drawing.Pen(Color.Yellow);
             if (!enemy.isSleeping) {
                 pen = new System.Drawing.Pen(enemy.isEdible ? Color.Green : Color.Red);
+                if (enemy.isGettingReady) {
+                pen = new System.Drawing.Pen(Color.DarkMagenta);
+                }
             }
             g.DrawEllipse(pen, rectangle);
         }

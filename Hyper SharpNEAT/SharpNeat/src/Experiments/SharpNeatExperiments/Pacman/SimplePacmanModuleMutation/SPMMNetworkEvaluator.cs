@@ -90,18 +90,19 @@ namespace SharpNeatLib.Experiments
             SharpNeatExperiments.Pacman.MyForm1.neatGenome = tempGenome;
             SharpNeatExperiments.Pacman.MyForm1.network = tempNet;
 
-            double retries = 5;
+            double retries = 1;
             double totalFitness = 0;
             for (int i = 0; i < retries; i++) {
                 var simplePacmanController = new PacmanAINeural.SPMMController();
                 simplePacmanController.SetBrain(tempNet, false, tempGenome, network, substrate.getSUPGMap());
+                simplePacmanController.Substrate = substrate;
 
                 SharpNeatExperiments.Pacman.SimplePacman simplePacman = null;
                 Thread visualizerThread;
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    bool fastNoDraw = true;
+                    bool fastNoDraw = false;
                     simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, fastNoDraw, new Random(i));
                     if (!fastNoDraw) {
                         System.Windows.Forms.Application.Run(simplePacman);
