@@ -138,6 +138,11 @@
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMNetworkEvaluator.cs" />
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMPopulationEvaluator.cs" />
     <Compile Include="Pacman\SimplePacmanModuleMutation\SPMMSubstrate.cs" />
+    <Compile Include="Pacman\SimplePacmanSUPG\SPSUPGController.cs" />
+    <Compile Include="Pacman\SimplePacmanSUPG\SPSUPGExperiment.cs" />
+    <Compile Include="Pacman\SimplePacmanSUPG\SPSUPGNetworkEvaluator.cs" />
+    <Compile Include="Pacman\SimplePacmanSUPG\SPSUPGPopulationEvaluator.cs" />
+    <Compile Include="Pacman\SimplePacmanSUPG\SPSUPGSubstrate.cs" />
     <Compile Include="Pacman\SUPGONLY\SUPGONLYController.cs" />
     <Compile Include="Pacman\SimplePacmanEnemyController.cs" />
     <Compile Include="Pacman\SimplePacman.cs">
@@ -205,9 +210,7 @@
       <DependentUpon>SimplePacman.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pacman\SimplePacmanSUPG\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>

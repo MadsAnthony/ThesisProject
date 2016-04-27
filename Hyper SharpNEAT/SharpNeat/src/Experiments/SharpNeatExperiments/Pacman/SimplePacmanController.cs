@@ -18,7 +18,7 @@ namespace PacmanAINeural
         public Point pos;
 
         public INetwork brain;
-        private static int wavelength = 100;  // SUPG wavelength
+        public static int wavelength = 100;  // SUPG wavelength
         private static int compression = 50;
         // arrays added to cache CPPN outputs for SUPG activation
         private float[,] supgOutputs;
@@ -180,7 +180,7 @@ namespace PacmanAINeural
             }
         }
 
-        private float getSUPGActivation(NeuronGene neuron, int cppnIterations)
+        public float getSUPGActivation(NeuronGene neuron, int cppnIterations)
         {
             float activation = 0;
             int offset = 0; // network.InputNeuronCount + network.OutputNeuronCount; // assume that SUPGs are placed at front of hidden neurons
@@ -221,6 +221,29 @@ namespace PacmanAINeural
             }
 
             //Console.WriteLine(activation);
+            return activation;
+        }
+
+        public float GetSUPGActivationUsingTime(NeuronGene neuron, int time) {
+            double[] coordinates = new double[5];
+            coordinates[0] = (float)neuron.XValue;
+            coordinates[1] = (float)neuron.YValue;
+
+            coordinates[2] = 0;
+            coordinates[3] = 0;
+
+
+            coordinates[0] = coordinates[0] / compression;
+
+            coordinates[4] = (float)time / wavelength;
+
+            cppn.ClearSignals();
+            cppn.SetInputSignals(coordinates);
+
+            int iterations = 2 * (network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount)) + 1;
+            cppn.MultipleSteps(iterations);
+
+            float activation = cppn.GetOutputSignal(1);
             return activation;
         }
 

@@ -30,12 +30,12 @@ namespace SharpNeatExperiments.Pacman
         public int timer = 0;
         int switchTime = 200;
         int taskTimer = 0;
-        public int score = 1000;
+        public float score = 1000;
         public int eatScore = 0;
         public int lifeScore = 1000;
         public PacmanAINeural.SimplePacmanController controller;
         public PacmanAINeural.SimplePacmanEnemyController[] enemies;
-        public int returnGameScore;
+        public float returnGameScore;
         public int returnEatScore;
         public int returnLifeScore;
 

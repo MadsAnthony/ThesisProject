@@ -142,7 +142,7 @@ namespace SharpNeatLib.NeuralNetwork
                 neuronSignalArray[i] = (float)signal;                
 
                 // GWM - If the override array contains a non-min value, we should override the signal
-                if (useSUPGArray[i] && overrideSignals[i] != float.MinValue)
+                if (/*useSUPGArray[i] && */overrideSignals != null && overrideSignals[i] != float.MinValue)
                     neuronSignalArray[i] = overrideSignals[i];
 
 				//neuronSignalArray[i] = 1.0F+(_neuronSignalArray[i]/(0.1F+Math.Abs(_neuronSignalArray[i])));

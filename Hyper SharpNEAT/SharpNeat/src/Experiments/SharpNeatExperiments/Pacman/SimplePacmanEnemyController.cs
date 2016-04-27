@@ -30,6 +30,7 @@ namespace PacmanAINeural
 
         public void Move() {
             timer ++;
+            if (timer % 2 == 0) return;
             if (isGettingReady || isSleeping) return;
             if (timer>reactionTime) {
                 controllerPos = gameState.controller.pos;

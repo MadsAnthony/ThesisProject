@@ -1,4 +1,4 @@
-<genome id="1251" species-id="0" age="1" fitness="1013,00" objective-fitness="1013,00">
+<genome id="800" species-id="0" age="1" fitness="1012,00" objective-fitness="1012,00">
   <neurons>
     <neuron id="0" type="bias" activationFunction="NullFn" />
     <neuron id="1" type="in" activationFunction="NullFn" />
@@ -10,9 +10,9 @@
     <neuron id="7" type="out" activationFunction="LinearNoAbs" />
   </neurons>
   <connections>
-    <connection innov-id="8" src-id="0" tgt-id="6" weight="0,57071414976380763" />
+    <connection innov-id="8" src-id="0" tgt-id="6" weight="0,5532912821508944" />
     <connection innov-id="9" src-id="1" tgt-id="6" weight="-0,205917002633214" />
-    <connection innov-id="10" src-id="2" tgt-id="6" weight="1,3852316859643905" />
+    <connection innov-id="10" src-id="2" tgt-id="6" weight="1,4552352433092892" />
     <connection innov-id="11" src-id="3" tgt-id="6" weight="1,2460988541133702" />
     <connection innov-id="12" src-id="4" tgt-id="6" weight="1,0029143770225346" />
     <connection innov-id="13" src-id="5" tgt-id="6" weight="0,34366900571621956" />

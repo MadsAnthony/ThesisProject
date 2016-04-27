@@ -35,6 +35,7 @@ namespace SharpNeatExperiments.Pacman
 
         public static NeatGenome neatGenome;
         public static INetwork network;
+        public static float[] OverrideSignals;
 
         public MyForm1()
         {
@@ -132,6 +133,9 @@ namespace SharpNeatExperiments.Pacman
                 if (neuron.NeuronType == SharpNeatLib.NeuralNetwork.NeuronType.Input)
                 {
                     color = System.Drawing.Color.Green;
+                }
+                if (OverrideSignals != null && OverrideSignals[neuron.InnovationId] != float.MinValue) {
+                    color = System.Drawing.Color.Blue;
                 }
                 /*var tmpneuronsToLightUp = NeuronsToLightUp.ToArray();
                 foreach (var neuronToLightUp in tmpneuronsToLightUp) {

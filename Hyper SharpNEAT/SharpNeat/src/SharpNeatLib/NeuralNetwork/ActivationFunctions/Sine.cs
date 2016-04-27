@@ -10,13 +10,13 @@ namespace SharpNeatLib.NeuralNetwork
 
         public double Calculate(double inputSignal)
         {
-            return Math.Sin(2*inputSignal);
+            return Math.Sin(3*2*Math.PI*inputSignal);
            
         }
 
         public float Calculate(float inputSignal)
         {
-            return (float)Math.Sin(2*inputSignal);
+            return (float)Math.Sin(3*2 * Math.PI * inputSignal);
         }
 
         public string FunctionId
