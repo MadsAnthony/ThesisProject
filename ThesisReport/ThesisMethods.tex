@@ -154,4 +154,17 @@ With development encoding you use local interaction and temporal unfolding in si
 \\
 These functions can then be put together in composition to get more advanced phenotypes. This is done using CPPN-NEAT which is a modified version of the NEAT algorithm. The reason that NEAT can be modified is that artificial neural networks (ANN) and CPPN structurally are the same.
 \subsection{Single Unit Pattern Generator (SUPG)}
+To generate oscilliations I will be using Single Unit Pattern Generator (SUPG) by Morse \& Risi [ref].
+\\
+\\
+Single Unit Pattern Generator (SUPG) is a special neuron that is placed on the hyperneat substrate, and works as a modified version of the CPPN. The unique thing for the SUPG, is that along with the substrate position, it also takes a linear signal as a input. The linear input works as a timer, and is increased by each clock tick. The time span from 0 to 1 and can be reset at any time using a trigger. The trigger is a way for the oscilliation to be dependent by events in the world - so that when a trigger is fired the cycle will reset and the timer will be set to 0. The main motivation for the SUPG, is that since CPPNs are good at encoding spatial pattern, it might also be good at encoding patterns across time.
+\\
+\\
+SUPG was introduced by Morse \& Risi [ref], where they used them to evolve gaits for a four-legged virtual robot. The robot had three motors for each leg (knee, hip in/out, hip forward/back). They then spread the different motor types across the substrate so that each motor type is grouped together with other legs that have the same type. The reason for this, is that hyperneat uses an indirect encoding, so that neurons grouped closely together will ensure that each motor type produce similar motion trajectories. For the four-legged robot the trigger is getting reset every time a leg touches the ground.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{SUPG}
+\includegraphics[scale=0.5]{SUPGLinearTime}
+\caption{[ref don't use this]}
+\end{figure}
 \end{document}
