@@ -36,6 +36,18 @@ With the background knowledge of neural oscillations and their possibly importan
 \\
 In this section I therefore introduce two new methods that is based on neural oscillations, MiO-HyperNEAT and MaO-HyperNEAT which is explained in the beginning of this sections. Their results will be compared against a modular method by Schrum[ref] that is based in Hyper-NEAT and another simple network that doesn't have any modularity.
 \subsection{MB-Hyper-NEAT [ref]}
+\subsubsection{Multitask CPPNs [ref]}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{MultitaskCPPN}
+\caption{}
+\end{figure}
+\subsubsection{Preference Neurons [ref]}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{PreferenceNeurons}
+\caption{}
+\end{figure}
 \subsubsection{Microscopic Oscilliations HyperNEAT (MiO-HyperNEAT)}
 The general idea with this method is to try and mimic the oscillation that happens on the microscopic level of the brain and use that to modularize the network. As mentioned earlier, the microscopic oscillations (MiO) is the firing patterns that take place for each neuron. To mimic this, MiO-HyperNEAT uses HyperNEAT together with SUPG to evolve oscillations for each hidden neuron placed on the substrate.
 \\
@@ -74,10 +86,25 @@ Since the total number of ways the hidden neurons can be active/disabled is $ 2^
    \hline
     \end{tabular}
 \end{center}
-\subsection{Experiment 2 - Timely split task (Simple domain)}
-\subsubsection{Domain}
+\subsection{Experiment 2 - Timely split task (Prey-Predator)}
+Now that I've tested how good the SUPG is at recognizing different oscillations, it's time to test how well the two new methods perform on an actual problem that requires multitasking. To do this I've come up with a simple domain that has a very clear split between two different task. The domain is inspired by pac-man and consist of two task, one where the agent is a prey and another where it is the predator. A detailed explanation of the domain and the sensors is given in the beginning of this section, and is then followed by the results of each method. 
+\subsubsection{Prey-Predator Domain}
+The idea with this domain is to have a relatively simple domain that has a very clear split between two tasks. The switch happens in a timely manner to ensure the agent is forced to experience both tasks - unlike a environmental task, where the agent first has to "discover" the task based on for example a position in the domain.
+\\
+\\
+The Prey-Predator domain consist of 1 agent and 3 enemies that are placed on a square board. The board is using a wrap-around design, so if you pass one of the edges you will appear on the opposite edge. The agent and the enemies can only move in four directions: up, down, left and right. The agent moves one unit per tick, whereas the enemies only move one unit on every second tick - so the agent moves at twice the speed of an enemy.
+\\
+\\
+The enemies have two states: edible and threat (i.e. not edible) and all agents will switch at the same time after $ x $ ticks. When enemies are edible they will move away from the agent, by going in the direction that increases the manhattan distance to the agent. If the agent catches an edible enemy, the fitness will be increase by 1 and the enemy will be spawned to a random position when next switch happens. When enemies are a threat they will move towards the agent by choosing the xy-component that is highest. If the agent touches a threat enemy, the fitness will decrease by 1 and will get spawned to a random position when next switch happens. Regardless if an enemy was hit, each switch introduces a cooldown where the enemies won't move for $ x $ ticks. This is done to give the agent a fair chance to flee from an enemy turning into a threat.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{PreyPredatorDomain}
+\caption{}
+\end{figure}
+\subsubsection{Sensors}
+All networks have 6 inputs and a minimum of 4 outputs. One input is used for bias. A second input is used for sensing the different task: 1 if enemies are edible and 0 otherwise. The last 4 input is used to sense where the nearest enemy in each direction is located by using the manhattan distance. The distance is clamped between 0 and 100 and divided by 100, so the input span from 0 to 1 - where 0 is close and 1 is far away. The four outputs indicate each direction, and the one output with the highest value is the direction the agent will choose.
 \subsubsection{Results}
-\subsection{Experiment 3 - Environment split task}
+\subsection{Experiment 3 - Environmental split task (Two Rooms)}
 \subsubsection{Domain}
 \subsubsection{Results}
 \end{document}
