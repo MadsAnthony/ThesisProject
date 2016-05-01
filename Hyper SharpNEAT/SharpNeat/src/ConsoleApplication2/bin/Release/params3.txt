@@ -3,8 +3,8 @@ WeightRange 3
 NumberofThreads 6
 SubstrateActivationFunction SteepenedSigmoid
 StartActivationFunctions
-BipolarSigmoid ,25
-Sine ,25
-Gaussian ,25
-Linear ,25
+BipolarSigmoid ,05
+Sine ,85
+Gaussian ,05
+Linear ,05
 EndActivationFunctions

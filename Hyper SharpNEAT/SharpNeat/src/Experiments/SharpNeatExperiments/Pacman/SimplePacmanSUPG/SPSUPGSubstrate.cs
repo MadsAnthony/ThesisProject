@@ -22,7 +22,7 @@ class SPSUPGSubstrate : Substrate
     public override NeatGenome generateGenome(INetwork network)
     {
         CachedGenome1 = MakeGenome(network, 0);
-        //CachedGenome2 = MakeGenome(network, 1);
+        CachedGenome2 = MakeGenome(network, 1);
         return CachedGenome1;
     }
 
@@ -39,8 +39,8 @@ class SPSUPGSubstrate : Substrate
             /*if (neuron.NeuronType != NeuronType.Input) {
                 neuron.ActivationFunction = new SteepenedSigmoid();
             }*/
-            neuron.TimeConstant = 1;
-            neuron.NeuronBias = 0;
+            //neuron.TimeConstant = 1;
+            //neuron.NeuronBias = GetNeuronBias(network, neuron, moduleI+1);
         }
 
         ConnectionGeneList connections = new ConnectionGeneList((int)((inputCount * hiddenCount) + (hiddenCount * outputCount)));
@@ -60,12 +60,15 @@ class SPSUPGSubstrate : Substrate
             QueryConnection(network, connections, connectionCounter++, source, 16, moduleI, newNeurons);
 
             // output
-            QueryConnection(network, connections, connectionCounter++, source, 6, moduleI, newNeurons);
+            /*QueryConnection(network, connections, connectionCounter++, source, 6, moduleI, newNeurons);
             QueryConnection(network, connections, connectionCounter++, source, 7, moduleI, newNeurons);
             QueryConnection(network, connections, connectionCounter++, source, 8, moduleI, newNeurons);
-            QueryConnection(network, connections, connectionCounter++, source, 9, moduleI, newNeurons);
-            QueryConnection(network, connections, connectionCounter++, source, 10, moduleI, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 9, moduleI, newNeurons);*/
+
+            // Special Output
+            //QueryConnection(network, connections, connectionCounter++, source, 10, 2, newNeurons);
         }
+        QueryConnection(network, connections, connectionCounter++, 5, 10, 2, newNeurons);
         // Connection from input to output
         /*QueryConnection(network, connections, connectionCounter++, 5, 6, newNeurons);
         QueryConnection(network, connections, connectionCounter++, 5, 7, newNeurons);*/
@@ -77,7 +80,9 @@ class SPSUPGSubstrate : Substrate
             QueryConnection(network, connections, connectionCounter++, tmpSource, 7, moduleI, newNeurons);
             QueryConnection(network, connections, connectionCounter++, tmpSource, 8, moduleI, newNeurons);
             QueryConnection(network, connections, connectionCounter++, tmpSource, 9, moduleI, newNeurons);
-            QueryConnection(network, connections, connectionCounter++, tmpSource, 10, moduleI, newNeurons);
+
+            // Special Output
+            //QueryConnection(network, connections, connectionCounter++, tmpSource, 10, 2, newNeurons);
         }
         return new SharpNeatLib.NeatGenome.NeatGenome(0, newNeurons, connections, (int)inputCount, (int)outputCount);
     }
@@ -99,6 +104,23 @@ class SPSUPGSubstrate : Substrate
             float weight = (float)(((Math.Abs(output) - (threshold)) / (1 - threshold)) * weightRange * Math.Sign(output));
             connections.Add(new ConnectionGene(connectionCounter, neuron1id, neuron2id, weight));
         }
+    }
+
+    float GetNeuronBias(INetwork network, NeuronGene neuron, int moduleI)
+    {
+        int iterations = 2 * (network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount)) + 1;
+
+        network.ClearSignals();
+        //network.SetInputSignal(0, 1);
+        network.SetInputSignal(0, neuron.XValue);
+        network.SetInputSignal(1, neuron.YValue);
+        network.SetInputSignal(2, 0);
+        network.SetInputSignal(3, 0);
+        network.SetInputSignal(4, 0);
+        network.MultipleSteps(iterations);
+
+        float output = network.GetOutputSignal(moduleI);
+        return output;
     }
 
     double getActivation(INetwork network, uint neuron1id, uint neuron2id, NeuronGeneList newNeurons) {

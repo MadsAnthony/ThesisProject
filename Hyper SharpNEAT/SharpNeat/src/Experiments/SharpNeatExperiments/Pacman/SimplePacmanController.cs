@@ -224,7 +224,7 @@ namespace PacmanAINeural
             return activation;
         }
 
-        public float GetSUPGActivationUsingTime(NeuronGene neuron, int time) {
+        public float GetSUPGActivationUsingTime(NeuronGene neuron, int time, int cppnOutputI = 1) {
             double[] coordinates = new double[5];
             coordinates[0] = (float)neuron.XValue;
             coordinates[1] = (float)neuron.YValue;
@@ -243,7 +243,7 @@ namespace PacmanAINeural
             int iterations = 2 * (network.TotalNeuronCount - (network.InputNeuronCount + network.OutputNeuronCount)) + 1;
             cppn.MultipleSteps(iterations);
 
-            float activation = cppn.GetOutputSignal(1);
+            float activation = cppn.GetOutputSignal(cppnOutputI);
             return activation;
         }
 
