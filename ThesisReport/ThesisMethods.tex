@@ -167,4 +167,36 @@ SUPG was introduced by Morse \& Risi [ref], where they used them to evolve gaits
 \includegraphics[scale=0.5]{SUPGLinearTime}
 \caption{[ref don't use this]}
 \end{figure}
+\subsection{MM-NEAT [ref]}
+In this paper they train nine different modular networks to play Ms. Pac-Man. The nine methods can be grouped into three main approaches. 
+\\ 
+\\
+The first one is called a multitasking network. The idea is to choose how many modules the network should have and how it should switch between the modules. Each module has its own policy output neurons, and it’s up to the user to tell the network when it should switch between the policies. This approach is biased, since it’s up to the user to choose the number of modules and how to split the tasks. So to avoid how to split the task, another network is used which introduces an extra neuron for each module called a preference neuron. 
+\\ 
+\\
+The idea is to let the preference neuron decide which module to choose. This is done by choosing the module with the preference neuron of highest value. Although this approach removes the human-bias on how to switch between tasks, the user still has to decide on how many modules should be used. So to account for this, a third approach called module mutation is used.
+\\ 
+\\
+Module mutation starts with a single module and new modules with policy and preference neurons are then later added. There are different ways to add a new module. MM(P) lets the module be connected to a previous module outputs. MM(R) randomly chooses input links used for the policy and preference neurons. MM(D) duplicates the same links used for previously policy neurons, and choose a random link for the new preference neuron.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.45]{MM-NEAT}
+\caption{}
+\end{figure}
+\subsection{MB-Hyper-NEAT [ref]}
+As a comparison for how the new methods perform, I will be  using an extension to Hyper-NEAT called MB-Hyper-NEAT by Schrum[]. MB-Hyper-NEAT is inspired by the direct encoding MM-NEAT, which introduces methods to generate modules to NEAT. The idea with MB-Hyper-NEAT is to use multiple "brains" (MB) by encoding multiple networks on different substrates. In the group of MB-Hyper-NEAT these networks can be generated in different ways, however I will only be focusing on two of the methods: namely Multitask CPPNs and Preference Neurons.
+\subsubsection{Multitask CPPNs [ref]}
+Recall that a regular CPPN has one output to query weights and another output for bias. This setup is fine if we only want to encode one network, however for Multitask CPPN we are interested to encode multiple networks. Therefore Multitask CPPN introduces $ n $ extra pairs of weight/bias-outputs, that can be used to encode the same nodes on the substrate but with different weights and biases. This way Multitask CPPN's generate different networks, so that one network can be used for one task and another network for a different task. However when to switch between the different networks must still be specified by a human - which can be problematic as it require some insight into the domain and can also bias the final result. This problem is addressed in the other MB-HyperNEAT method using Preference Neurons.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{MultitaskCPPN}
+\caption{}
+\end{figure}
+\subsubsection{Preference Neurons [ref]}
+This method builds upon multitasking CPPN, and introduces a way that let HyperNEAT discover when to switch between the different networks. This is done by having an extra output on the substrate network called a preference neuron. The preference neuron exist on each network, and the one with the heighest input is the network that get chosen. The connections weights to the preference neuron gets encoded by it's own output from the CPPN. An example can be seen in figure (x).
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{PreferenceNeurons}
+\caption{}
+\end{figure}
 \end{document}
