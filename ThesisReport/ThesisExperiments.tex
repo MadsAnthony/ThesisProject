@@ -71,7 +71,7 @@ To generate matching oscillations the SUPG has to evolve it's topology using NEA
 However I made a small modification to the sine activation to try and increase the number of frequencies it can generate. To do that I let the the activation be defined as $ sin(3 \cdot2\pi \cdot x) $ so that a single connection to the timer (with a weight of 1) will generate 3 periods.
 \\
 \\
-The following shows how well the SUPG it is at recognizing single functions.
+I set the population to 300 and let it run for a maximum of 250 generations. For the mutation I let the probability for add node/connection be 0.15 each, and set the mutation in connections weight to 0.7. I let it have an elitism proportion of 0.1 and let the compatibility factor for difference in weight ($ c_3 $) be 3 where the other two compatibility factors are set to 1. The following shows how well the SUPG it is at recognizing single functions.
 \begin{center}
     \begin{tabular}{ | p{4cm} | l | l | l |}
     \hline
