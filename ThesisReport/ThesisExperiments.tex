@@ -36,7 +36,7 @@ With the background knowledge of neural oscillations and their possibly importan
 \\
 In this section I therefore introduce two new methods that is based on neural oscillations, MiO-HyperNEAT and MaO-HyperNEAT which is explained in the beginning of this sections. Their results will be compared against a modular method by Schrum[ref] that is based in Hyper-NEAT and another simple network that doesn't have any modularity.
 \subsubsection{Microscopic Oscilliations HyperNEAT (MiO-HyperNEAT)}
-The general idea with this method is to try and mimic the oscillation that happens on the microscopic level of the brain and use that to modularize the network. As mentioned earlier, the microscopic oscillations (MiO) is the firing patterns that take place for each neuron. To mimic this, MiO-HyperNEAT uses HyperNEAT together with SUPG to evolve oscillations for each hidden neuron placed on the substrate.
+The general idea with this method is to try and mimic the oscillations that happens on the microscopic level of the brain and use it to modularize the network. As mentioned earlier, the microscopic oscillations (MiO) is the firing patterns that take place for each neuron. To mimic this, MiO-HyperNEAT uses HyperNEAT together with SUPG to evolve oscillations for each hidden neuron placed on the substrate.
 \\
 \\
 Along with the oscillation evolved for each hidden neuron the network on the substrate has an extra output that generate a \textit{Master Frequency}. The master frequency, isn't evolved using a SUPG, but is instead generated as a normal output (that if necessary can be modulated onto some pre-defined function - ex. sine function). The idea with the master frequency is to generate a frequency that is dependent on the environment, whereas the neuron oscillations only are determined by their position on the substrate.
@@ -100,12 +100,12 @@ I set the population to 300 and let it run for a maximum of 250 generations. For
    \hline
     \end{tabular}
 \end{center}
-As the results shows, the SUPG seems to match the functions pretty good. A reason for the imprecision in the sine function, could be explained by the bipolar sigmoid that every output neuron is using as the activation function. This can be seen at the peaks and valleys of the sine, which are more curved.
+As the results shows, the SUPG seems to match the functions pretty good. However a reason for the imprecision in the sine function, could be explained by the bipolar sigmoid that every output neuron is using as the activation function. This can be seen at the peaks and valleys of the sine, which are more curved.
 \\
 \\
 However since the SUPG will be used to generate multiple frequencies (depending on their position on the substrate) it would be interesting to see how well it is at discovering multiple frequencies. The following show how well the SUPG is at recognizing multiple functions.
 \begin{center}
-    \begin{tabular}{ | p{4cm} | l | l | l |}
+    \begin{tabular}{ | p{4.5cm} | l | l | l |}
     \hline
     Function & Original & Evolved & Fitness ($ F $) \\ \hline
     \begin{equation} f(x) =
@@ -120,9 +120,9 @@ However since the SUPG will be used to generate multiple frequencies (depending 
     \end{cases} \nonumber \end{equation} & 
     \raisebox{-1.7\height}{\includegraphics[scale=0.4]{Frequency/BinaryMultiple}}
      &
-     \raisebox{-1.7\height}{\includegraphics[scale=0.4]{Frequency/BinaryMultipleEvolved}}
+     \raisebox{-1.7\height}{\includegraphics[scale=0.4]{Frequency/BinaryMultipleEvolved_v2}}
      &  
-     0.569
+     0.992
      
 \\
     \hline
@@ -132,17 +132,26 @@ However since the SUPG will be used to generate multiple frequencies (depending 
        &  
        \raisebox{-1.7\height}{\includegraphics[scale=0.4]{Frequency/Sin1MultipleEvolved_v3}}
        & 
-       0.9
+       0.900
 \\
    \hline
-   \begin{equation} f(x) = 0.2 \cdot sin(4x+0.5) \nonumber \end{equation}  &
+    \begin{equation} f(x) =
+    \begin{cases}
+      -1, & \text{if}\ x<0.5 \\
+      1, & \text{otherwise}
+    \end{cases} \nonumber \end{equation}  
+    \begin{equation} g(x) = sin(6x \cdot 2\pi) \nonumber \end{equation}
+    \begin{equation} h(x) = 0.7 \cdot sin(4x \cdot 2\pi+0.5) \nonumber \end{equation}&
+   \raisebox{-1.8\height}{\includegraphics[scale=0.4]{Frequency/Sin3Multiple}}
  & 
-
-   &  \\
+ \raisebox{-1.8\height}{\includegraphics[scale=0.4]{Frequency/Sin3MultipleEvolved}}
+   &  
+   0.83
+   \\
    \hline
     \end{tabular}
 \end{center}
-Then number of generations was increased to 500, since it took later for the results to stagnate. I also ran the evolution for each function up to five times, and showcased the best. The reason for this, is that it sometimes will get stuck in a local optima, and wouldn't improve significantly enough.
+The number of generations was increased to 800, since it took more time for the results to stagnate. I also ran the evolution for each function up to five times, and only showcased the best. The reason for this, is that it sometimes will get stuck in a local optima, and wouldn't improve significantly enough.
 \subsection{Experiment 2 - Timely split task (Prey-Predator)}
 Now that I've tested how good the SUPG is at recognizing different oscillations, it's time to test how well the two new methods perform on an actual problem that requires multitasking. To do this I've come up with a simple domain that has a very clear split between two different task. The domain is inspired by pac-man and consist of two task, one where the agent is a prey and another where it is the predator. A detailed explanation of the domain and the sensors is given in the beginning of this section, and is then followed by the results of each method. 
 \subsubsection{Prey-Predator Domain}
