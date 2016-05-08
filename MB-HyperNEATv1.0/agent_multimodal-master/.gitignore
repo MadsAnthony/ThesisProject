@@ -1,0 +1,54 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.svn
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.pdb
+*.cache
+*.mdb
+
+# Identified by Jacob #
+#######################
+*.FileListAbsolute.txt
+*.vshost.*
+*.suo
+*.csproj.user
+*.vbproj.user
+AgentSimulator/data/Engine.dll.mdb
+AgentSimulator/simulator.suo
+AgentSimulator/Engine/obj/Debug/*.resources
+
+# Data from experiments #
+#########################
+*bestGenome*.xml
+*logfile.txt
+*.zip
+AgentSimulator/data/adversary - 2015-05-10/SUMMARY.txt
+AgentSimulator/data/prelim - adversary - 2015-05-22/SUMMARY.txt
+AgentSimulator/data/troubleshoot - heading problem - 2015-06-21/*
+AgentSimulator/data/solving enemy bot behavior problem/*
+AgentSimulator/data/survival against 2 enemies - 2015-07-01/SUMMARY.txt
+AgentSimulator/data/survival against 3 enemies - 2015-07-02/SUMMARY.txt
+AgentSimulator/data/assess-prey-two-room
+AgentSimulator/data/condor-NO_SEED-prey-two-room-results 2015-07-11
+*.gz
