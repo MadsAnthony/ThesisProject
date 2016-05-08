@@ -1,36 +1,31 @@
-\documentclass[11pt, a4paper]{article}
-%\usepackage[danish]{babel}
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-%\usepackage{xfrac}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{tikz}
-\usepackage{array}
-\usepackage{cancel}
-\usepackage{ulem}
-\usepackage{graphicx}
-\usepackage[a4paper]{geometry}
-\usepackage{gauss}
-%\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{lastpage}
-\usepackage{fancyhdr}
-\usepackage{multirow}
-\usepackage{listings}
-\setlength{\headheight}{15.2pt}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{Mads Anthony, MANA} %husk denne
-\rhead{Side\ \thepage\ af\ \pageref{LastPage}} %husk 2 builds for dette!
-%\usepackage[ansinew]{inputenc} 
-\usepackage{enumerate}
-%dot2tex loads
-\usetikzlibrary{shapes}
-\begin{document}
-\author{Mads Anthony}
+%\documentclass[11pt, a4paper]{article}
+%\usepackage{amsmath}
+%\usepackage[utf8]{inputenc}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{tikz}
+%\usepackage{array}
+%\usepackage{cancel}
+%\usepackage{ulem}
+%\usepackage{graphicx}
+%\usepackage[a4paper]{geometry}
+%\usepackage{gauss}
+%\usepackage{amsmath}
+%\usepackage{lastpage}
+%\usepackage{fancyhdr}
+%\usepackage{multirow}
+%\usepackage{listings}
+%\setlength{\headheight}{15.2pt}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{Mads Anthony, MANA} %husk denne
+%\rhead{Side\ \thepage\ af\ \pageref{LastPage}} %husk 2 builds for dette!
+%\usepackage{enumerate}
+%\usetikzlibrary{shapes}
+%\begin{document}
+%\author{Mads Anthony}
 \section{Methods}
-In this section I will describe the methods that I've been using to evolve multitasking agents. Since most of these methods is build atop other methods, I've decided to start off with a description of the basics. I then use this as a foundation to describe the next methods that is building upon that. This bottom-up approach is then repeated until I've described all the methods used in this project.
+In this section I will describe the methods that I've been using to evolve multitasking agents. Since most of these methods is build atop of other methods, I start with a description of the basics. I then use this as a foundation to describe the next methods that is building upon that. This bottom-up approach is then repeated until I've described all the methods used in this project.
 \subsection{Evolutionary Algorithms}
 Evolutionary Algorithms (EA) is a group of algorithms that are based on implementing the principles of evolution. The general idea is to mimic real life, and let the algorithm "discover" the best solutions. This is done by having a population of solutions be evaluated on a defined fitness parameter. We then let the fittest solutions survive, and combine them with another fit solution to produce a new offspring solution. The offspring then has a possibility to mutate and is placed in a new generation. We then repeat the procedure on the new generation until we have a good enough solution.
 \\
@@ -48,21 +43,21 @@ To start using EA, we first need to have an initial population of individuals an
 The phenotype space can be different from the genotype space, and choosing a genotype space is important, since it's here the evolutionary search takes place. The mapping from phenotype to genotype is called encoding and it is possible to have multiple genotypes that encode the same phenotype. The reverse is called decoding, however one genotype can only produce one phenotype.
 \\
 \\
-With a representation chosen we can now initialise the first population. The initialisation of an EA is often kept simple, and the first population is therefore mostly generated randomly [p.23 Eiben Smith].
+With a representation chosen we can now initialise the first population. The initialisation of an EA is often kept simple, and the first population is therefore often generated randomly [p.23 Eiben Smith].
 \subsubsection{Evaluation and Parent Selection}
 With an initial population in place we now want to evaluate the whole population and choose which individuals will be used for parents. To do this, we introduce a fitness function. The fitness function is usually applied in the phenotype space (as it's here we want to find the best solution). The fitness of the genotype is therefore assigned by first decoding the genotype and then applying the fitness function.
 \\
 \\
 Dependent on the problem being a minimisation or maximization problem we value the individuals with lowest or highest fitness values respectively. The idea for parent selection is to let the higher quality individuals be the base for the new generation. However we don't want to make the selection solely on the fitness, but instead use a probabilistic approach where individuals with higher fitness still gets favoured. This means that other  "weaker" individuals still get a chance to get picked. This is done to avoid the search being greedy and getting stuck on local optimum [p.21 Eiben-Smith].
 \subsubsection{Recombination and Mutation}
-Recombination merges two genotypes into one or more genotypes, and the way parts from the parents gets chosen, is decided in a randomly fashion. It is possible to use more than two parents but is not common as doesn't have a biological equivalent [p.22 Eiben-Smith]. Using only one parent is called a-sexual reproduction and can produce a different offspring dependent on the variation operator [ref?].
+Recombination merges two genotypes into one or more genotypes, and the genotype parts from each parents is chosen in a randomly fashion. It is possible to use more than two parents, but is not that common as it doesn't have a biological equivalent [p.22 Eiben-Smith]. Using only one parent is called a-sexual reproduction and can produce a different offspring dependent on the variation operator [ref?].
 \\
 \\
 With a new offspring created there is a chance that a mutation might happen. A mutation will change the offspring's genotype in random unbiased way. This is done to fill the gene pool with "fresh blood" [p. 21 Eiben-Smith].
 \subsubsection{Survivor Selection}
-Survivor selection is similiar to parent selection, but is not stochastic. Instead it selects in a deterministic way by choosing from the unified multi set of parents and offspring the one with highest fitness.
+Survivor selection is similiar to parent selection, but is not stochastic. Instead it selects in a deterministic way the one with highest fitness by choosing from the unified multi-set of parents and offspring.
 \subsubsection{Termination}
-When to terminate the EA can be chosen in many different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
+When to terminate the EA can be decided in different ways. Some examples include: set a limit of number of generation or check if the diversity in the population drops under a certain a threshold.
 \subsection{Neuroevolution}
 Neuroevolution is evolutionary algorithms applied on artificial neural networks (ANN). In the following I will give an overview of what an ANN is and how they work.
 \subsubsection{ANN}
@@ -74,7 +69,7 @@ ANN is a model that is inspired by biological neural networks - as observed in t
 \caption{[ref http://ufldl.stanford.edu]}
 \end{figure}
 \\
-As seen in figure (x), the neuron takes a number of inputs given by vector $ X $ and add them together. It then inputs the sum into the the function $ h $ - also called an activation function. The idea with the activation function is... [ref].
+As seen in figure (x), the neuron takes a number of inputs given by vector $ X $ and add them together. It then inputs the sum into the the function $ h $ - also called an activation function. %The idea with the activation function is... [ref].
 \\
 \\
 The activation function can vary depending on the setup but often a sigmoid function is chosen. The one input to the neuron that is 1, is a bias and can be grouped together with the vector $ X $ by setting $ X_0 = 1 $.
@@ -104,7 +99,7 @@ Now that I've given a brief description of both evolutionary algorithms and neur
 \\
 \\
 \subsubsection{Representation and crossover}
-NEAT uses a direct encoding by letting the genotype have two lists representing the network, one for the nodes and another for the connections. The reason NEAT is using a direct encoding instead of an indirect, is that an indirect encoding tend to bias the search in unpredictable ways [stanley p. 102].
+NEAT uses a direct encoding by letting the genotype have two lists representing the network: one for the nodes and another for the connections. The reason NEAT is using a direct encoding instead of an indirect, is that an indirect encoding tend to bias the search in unpredictable ways [stanley p. 102].
 \\
 \\
 One of the problems with doing NeuroEvolution is dealing with the Competing Convention Problem [ref stanley p. 103]. It's a problem that arise when you have multiple genomes that produces the same solution but have different encoding. When doing crossover on these, it's likely to produce damaged offspring - since they are permutation of one another, you could end up getting the same "information" from both parents.
@@ -129,11 +124,11 @@ Another key feature of NEAT is the introduction  of species. The idea of having 
 Each species is represented by a random genome inside the species. A genome $ g $ is placed into the first species it's compatible to, if the the distance measure $ \delta $ between $ g $ and the representive genome for that species is within a certain threshold $ \delta_t $. If $ g $ is not compatible with any species, a new species will be created with $ g $ as a representative.
 \\
 \\
-To avoid letting one species take over the entire populations, NEAT uses an explicit fitness sharing. This is done by introducing an adjusted fitness $ f_i'$ that is the normal fitness $ f_i $ divided by the number of genomes in the species that the target genome exist in. For reproducing the species first eliminate the lowest performing genomes in the population and then let the entire population be replaced by the new offspring.
+To avoid letting one species take over the entire populations, NEAT uses an explicit fitness sharing. This is done by introducing an adjusted fitness $ f_i'$ that is the normal fitness $ f_i $ divided by the number of genomes in the species that the target genome exist in. For reproducing, the species first eliminate the lowest performing genomes in the population and then let the entire population be replaced by the new offspring.
 \subsubsection{Minimum structure}
 NEAT has an initial structure of no hidden neurons, and  so new topology is gained with mutation. This has the advantages of the dimensionality staying low, and strengthen the analogy to nature, where something simple gets evolved into something more complex during evolution.
 \subsection{HyperNEAT}
-HyperNeat extends the NEAT method, by encoding the network by another network called a Compositional Pattern Producing Network (CPPN) which is then evolved using NEAT. HyperNeat uses a substrate which usually is defined as a 2 dimensional plane that ranges from -1 to -1 on both x and y axis. You then place the neurons for your final network on the substrate and let the connection weights be determined by querying the CPPN.
+HyperNeat extends the NEAT method, by encoding the network by another network called a Compositional Pattern Producing Network (CPPN) which is then evolved using NEAT. HyperNeat uses a substrate which usually is defined as a 2 dimensional plane that ranges from -1 to -1 on both x and y axis. You then place the neurons for your final network on the substrate and let the connection weights be determined by the CPPN.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.3]{HyperNeatSubstrate}
@@ -160,7 +155,7 @@ To generate oscilliations I will be using Single Unit Pattern Generator (SUPG) b
 Single Unit Pattern Generator (SUPG) is a special neuron that is placed on the hyperneat substrate, and works as a modified version of the CPPN. The unique thing for the SUPG, is that along with the substrate position, it also takes a linear signal as a input. The linear input works as a timer, and is increased by each clock tick. The time span from 0 to 1 and can be reset at any time using a trigger. The trigger is a way for the oscilliation to be dependent by events in the world - so that when a trigger is fired the cycle will reset and the timer will be set to 0. The main motivation for the SUPG, is that since CPPNs are good at encoding spatial pattern, it might also be good at encoding patterns across time.
 \\
 \\
-SUPG was introduced by Morse \& Risi [ref], where they used them to evolve gaits for a four-legged virtual robot. The robot had three motors for each leg (knee, hip in/out, hip forward/back). They then spread the different motor types across the substrate so that each motor type is grouped together with other legs that have the same type. The reason for this, is that hyperneat uses an indirect encoding, so that neurons grouped closely together will ensure that each motor type produce similar motion trajectories. For the four-legged robot the trigger is getting reset every time a leg touches the ground.
+SUPG was introduced by Morse \& Risi [ref], where they used them to evolve gaits for a four-legged virtual robot. The robot had three motors for each leg (knee, hip in/out, hip forward/back). They then spread the different motor types across the substrate so that each motor type is grouped together with other legs that have the same type. The reason for this, is that hyperneat uses an indirect encoding, so that neurons grouped closely together will likely produce similar motion trajectories. For the four-legged robot the trigger is getting reset every time a leg touches the ground.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{SUPG}
@@ -168,10 +163,10 @@ SUPG was introduced by Morse \& Risi [ref], where they used them to evolve gaits
 \caption{[ref don't use this]}
 \end{figure}
 \subsection{MM-NEAT [ref]}
-In this paper they train nine different modular networks to play Ms. Pac-Man. The nine methods can be grouped into three main approaches. 
+MM-NEAT is a group of modular methods by Schrum, and is expanded to HyperNEAT in Schrum's MB-Hyper-NEAT.
 \\ 
 \\
-The first one is called a multitasking network. The idea is to choose how many modules the network should have and how it should switch between the modules. Each module has its own policy output neurons, and it’s up to the user to tell the network when it should switch between the policies. This approach is biased, since it’s up to the user to choose the number of modules and how to split the tasks. So to avoid how to split the task, another network is used which introduces an extra neuron for each module called a preference neuron. 
+MM-NEAT can be grouped into three main approaches. The first one is called a multitasking network. The idea is to choose how many modules the network should have and how it should switch between the modules. Each module has its own policy output neurons, and it’s up to the user to tell the network when it should switch between the policies. This approach is biased, since it’s up to the user to choose the number of modules and how to split the tasks. So to avoid how to split the task, another network is used which introduces an extra neuron for each module called a preference neuron. 
 \\ 
 \\
 The idea is to let the preference neuron decide which module to choose. This is done by choosing the module with the preference neuron of highest value. Although this approach removes the human-bias on how to switch between tasks, the user still has to decide on how many modules should be used. So to account for this, a third approach called module mutation is used.
@@ -184,9 +179,10 @@ Module mutation starts with a single module and new modules with policy and pref
 \caption{}
 \end{figure}
 \subsection{MB-Hyper-NEAT [ref]}
-As a comparison for how the new methods perform, I will be  using an extension to Hyper-NEAT called MB-Hyper-NEAT by Schrum[]. MB-Hyper-NEAT is inspired by the direct encoding MM-NEAT, which introduces methods to generate modules to NEAT. The idea with MB-Hyper-NEAT is to use multiple "brains" (MB) by encoding multiple networks on different substrates. In the group of MB-Hyper-NEAT these networks can be generated in different ways, however I will only be focusing on two of the methods: namely Multitask CPPNs and Preference Neurons.
+As a comparison for how my methods perform, I will be  using an extension to Hyper-NEAT called MB-Hyper-NEAT by Schrum[]. MB-Hyper-NEAT is inspired by the direct encoding MM-NEAT, which introduces methods to generate modules to NEAT. The idea with MB-Hyper-NEAT is to use multiple "brains" (MB) by encoding multiple networks on different substrates. In the group of MB-Hyper-NEAT these networks can be generated in different ways, however I will only be focusing on two of the methods: namely Multitask CPPNs and Preference Neurons.
+\newpage
 \subsubsection{Multitask CPPNs [ref]}
-Recall that a regular CPPN has one output to query weights and another output for bias. This setup is fine if we only want to encode one network, however for Multitask CPPN we are interested to encode multiple networks. Therefore Multitask CPPN introduces $ n $ extra pairs of weight/bias-outputs, that can be used to encode the same nodes on the substrate but with different weights and biases. This way Multitask CPPN's generate different networks, so that one network can be used for one task and another network for a different task. However when to switch between the different networks must still be specified by a human - which can be problematic as it require some insight into the domain and can also bias the final result. This problem is addressed in the other MB-HyperNEAT method using Preference Neurons.
+Recall that a regular CPPN has one output to query weights and another output for bias. This setup is fine if we only want to encode one network, however for Multitask CPPN we are interested to encode multiple networks. Therefore Multitask CPPN introduces $ n $ extra pairs of weight/bias-outputs, that can be used to encode the same nodes on the substrate but with different weights and biases. This way Multitask CPPN's generate different networks, so that one network can be used for one task and another network for a different task. However the switch between the different networks must still be specified by a human - which can be problematic as it require some insight into the domain and can also bias the final result. This problem is addressed in the other MB-HyperNEAT method using Preference Neurons.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.6]{MultitaskCPPN}
@@ -199,4 +195,4 @@ This method builds upon multitasking CPPN, and introduces a way that let HyperNE
 \includegraphics[scale=0.6]{PreferenceNeurons}
 \caption{}
 \end{figure}
-\end{document}
+%\end{document}
