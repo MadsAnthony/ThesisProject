@@ -1,1 +1,3 @@
 https://books.google.dk/books?id=7QB7CgAAQBAJ&pg=PA120&lpg=PA120&dq=neural+oscillations+synchrony+definition&source=bl&ots=21EI7kQ0l3&sig=n29ced4jGyykDq3g_8GYtJ2uP6M&hl=da&sa=X&ved=0ahUKEwjdnM73r73MAhVoKsAKHVClB9M4HhDoAQhQMAU#v=onepage&q=neural%20oscillations%20synchrony%20definition&f=false
+
+http://www.fieldtriptoolbox.org/tutorial/fourier
