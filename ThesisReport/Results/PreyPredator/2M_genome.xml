@@ -1,0 +1,48 @@
+<genome id="6440" species-id="2" age="1" fitness="1031,00" objective-fitness="1031,00">
+  <neurons>
+    <neuron id="0" type="bias" activationFunction="NullFn" />
+    <neuron id="1" type="in" activationFunction="NullFn" />
+    <neuron id="2" type="in" activationFunction="NullFn" />
+    <neuron id="3" type="in" activationFunction="NullFn" />
+    <neuron id="4" type="in" activationFunction="NullFn" />
+    <neuron id="5" type="in" activationFunction="NullFn" />
+    <neuron id="6" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="7" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="8" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="9" type="out" activationFunction="BipolarSigmoid" />
+    <neuron id="238" type="hid" activationFunction="BipolarSigmoid" />
+    <neuron id="1169" type="hid" activationFunction="Linear" />
+    <neuron id="1247" type="hid" activationFunction="Linear" />
+  </neurons>
+  <connections>
+    <connection innov-id="10" src-id="0" tgt-id="6" weight="-1,3663141617551446" />
+    <connection innov-id="11" src-id="1" tgt-id="6" weight="0,7992993314284832" />
+    <connection innov-id="12" src-id="2" tgt-id="6" weight="-0,42381201591342688" />
+    <connection innov-id="13" src-id="3" tgt-id="6" weight="0,61784272324293854" />
+    <connection innov-id="14" src-id="4" tgt-id="6" weight="1,3010525149293244" />
+    <connection innov-id="16" src-id="0" tgt-id="7" weight="0,19558531413786112" />
+    <connection innov-id="17" src-id="1" tgt-id="7" weight="1,4043728073127568" />
+    <connection innov-id="18" src-id="2" tgt-id="7" weight="0,537208266556263" />
+    <connection innov-id="19" src-id="3" tgt-id="7" weight="1,1562733751256018" />
+    <connection innov-id="20" src-id="4" tgt-id="7" weight="-0,14418004462495446" />
+    <connection innov-id="21" src-id="5" tgt-id="7" weight="0,82601934070698912" />
+    <connection innov-id="23" src-id="1" tgt-id="8" weight="-1,4324209917802364" />
+    <connection innov-id="24" src-id="2" tgt-id="8" weight="0,5406955755315721" />
+    <connection innov-id="25" src-id="3" tgt-id="8" weight="0,56735479496419428" />
+    <connection innov-id="26" src-id="4" tgt-id="8" weight="1,4269794733263552" />
+    <connection innov-id="27" src-id="5" tgt-id="8" weight="0,22846654802560809" />
+    <connection innov-id="28" src-id="0" tgt-id="9" weight="0,29775816109031439" />
+    <connection innov-id="29" src-id="1" tgt-id="9" weight="0,38005508109927177" />
+    <connection innov-id="31" src-id="3" tgt-id="9" weight="-1,0492378030903637" />
+    <connection innov-id="32" src-id="4" tgt-id="9" weight="0,72019959194585681" />
+    <connection innov-id="33" src-id="5" tgt-id="9" weight="-1,3674285672605038" />
+    <connection innov-id="239" src-id="5" tgt-id="238" weight="1,0005331291351467" />
+    <connection innov-id="240" src-id="238" tgt-id="6" weight="1,3982494284864515" />
+    <connection innov-id="537" src-id="8" tgt-id="238" weight="-1,2570709394756705" />
+    <connection innov-id="766" src-id="8" tgt-id="7" weight="0,028114132583141327" />
+    <connection innov-id="1170" src-id="2" tgt-id="1169" weight="1" />
+    <connection innov-id="1171" src-id="1169" tgt-id="9" weight="-0,0377566478215158" />
+    <connection innov-id="1248" src-id="0" tgt-id="1247" weight="1" />
+    <connection innov-id="1249" src-id="1247" tgt-id="8" weight="-0,80043434500694277" />
+  </connections>
+</genome>
