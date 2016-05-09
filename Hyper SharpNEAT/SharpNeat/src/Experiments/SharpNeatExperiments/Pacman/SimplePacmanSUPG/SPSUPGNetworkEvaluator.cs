@@ -89,6 +89,7 @@ namespace SharpNeatLib.Experiments
             tempNet = tempGenome.Decode(null);
             SharpNeatExperiments.Pacman.MyForm1.neatGenome = tempGenome;
             SharpNeatExperiments.Pacman.MyForm1.network = tempNet;
+            SharpNeatExperiments.Pacman.MyForm1.InitStartLine();
 
             double retries = 1;
             double totalFitness = 0;
@@ -110,6 +111,7 @@ namespace SharpNeatLib.Experiments
                 });
                 visualizerThread.Start();
                 visualizerThread.Join();
+
 
                 totalFitness += simplePacman.returnGameScore;// visualizer.returnGameState;
             }

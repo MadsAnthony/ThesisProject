@@ -80,9 +80,9 @@ namespace SharpNeatLib.Experiments
                     np.elitismProportion = .1;
                     np.pInitialPopulationInterconnections = 1;
                     np.pInterspeciesMating = 0.05;
-                    np.pMutateAddConnection = .17;
-                    np.pMutateAddNode = .17;
-                    np.pMutateConnectionWeights = .66;
+                    np.pMutateAddConnection = .15;
+                    np.pMutateAddNode = .15;
+                    np.pMutateConnectionWeights = .7;
                     np.pMutateDeleteConnection = 0;
                     np.pMutateDeleteSimpleNeuron = 0;
                     /*np.populationSize = 300;

@@ -1,0 +1,2 @@
+sin1 = sin(2x*2pi)
+sin2 = sin(4x*2pi+0.5)*0.7

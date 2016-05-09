@@ -13,6 +13,8 @@ using SharpNeatLib.NeuralNetwork.Xml;
 using System.Xml;
 using System.IO;
 using System.Threading;
+using System.Xml.Linq;
+using System.Linq;
 
 namespace SharpNeat.Experiments
 {
@@ -37,8 +39,8 @@ namespace SharpNeat.Experiments
 
 
             double maxFitness = 0;
-            int maxGenerations = 100;
-            int populationSize = 100;//100;//150;
+            int maxGenerations = 1000;
+            int populationSize = 300;//100;//150;
 
             Thread extraWindowThread;
             extraWindowThread = new System.Threading.Thread(delegate()
@@ -53,7 +55,7 @@ namespace SharpNeat.Experiments
             //exp = new PacmanExperimentSUPG(4, 12, 12, 5, 2);
             //exp = new SPMMExperiment(4, 12, 12, 5, 2);
             //exp = new SPCExperiment(4, 12, 12, 5, 2);
-            exp = new SPSUPGExperiment(4, 12, 12, 5, 4);
+            exp = new SPSUPGExperiment(4, 12, 12, 5, 3);
 
             StreamWriter SW;
             SW = File.CreateText("logfile.txt");
@@ -95,8 +97,10 @@ namespace SharpNeat.Experiments
                     oFileInfo = new FileInfo("bestGenome" + j.ToString() + ".xml");
                     doc.Save(oFileInfo.FullName);
 
+                    //MadsXMLWriter(j, maxFitness);
 
                 }
+                MadsXMLWriter(j, maxFitness);
                 Console.WriteLine(ea.Generation.ToString() + " " + (maxFitness).ToString() + " " + (DateTime.Now.Subtract(dt)));
                 //Do any post-hoc stuff here
 
@@ -111,6 +115,43 @@ namespace SharpNeat.Experiments
             oFileInfo = new FileInfo("bestGenome.xml");
             doc.Save(oFileInfo.FullName);
 
+        }
+
+        public static void MadsXMLWriter(int generationNumber, double fitness)
+        {
+            if (File.Exists("Test.xml") == false)
+            {
+                XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+                xmlWriterSettings.Indent = true;
+                xmlWriterSettings.NewLineOnAttributes = true;
+                using (XmlWriter xmlWriter = XmlWriter.Create("Test.xml", xmlWriterSettings))
+                {
+                    xmlWriter.WriteStartDocument();
+                    xmlWriter.WriteStartElement("Genome");
+
+                    xmlWriter.WriteStartElement("Champion");
+                    //xmlWriter.WriteElementString("Generation", generationNumber.ToString());
+                    xmlWriter.WriteElementString("Fitness", fitness.ToString());
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteEndElement();
+                    xmlWriter.WriteEndDocument();
+                    xmlWriter.Flush();
+                    xmlWriter.Close();
+                }
+            }
+            else
+            {
+                XDocument xDocument = XDocument.Load("Test.xml");
+                XElement root = xDocument.Element("Genome");
+                IEnumerable<XElement> rows = root.Descendants("Champion");
+                XElement firstRow = rows.Last();
+                firstRow.AddAfterSelf(
+                   new XElement("Champion",
+                   //new XElement("Generation", generationNumber.ToString()),
+                   new XElement("Fitness", fitness.ToString())));
+                xDocument.Save("Test.xml");
+            }
         }
     }
 }

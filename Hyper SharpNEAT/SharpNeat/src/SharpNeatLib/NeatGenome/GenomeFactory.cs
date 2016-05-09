@@ -46,8 +46,8 @@ namespace SharpNeatLib.NeatGenome
             //actFunct = ActivationFunctionFactory.GetActivationFunction("NullFn");
 			for(int i=0; i<outputNeuronCount; i++)
 			{
-                actFunct = ActivationFunctionFactory.GetActivationFunction("LinearNoAbs");
-                //actFunct = ActivationFunctionFactory.GetActivationFunction("BipolarSigmoid");
+                //actFunct = ActivationFunctionFactory.GetActivationFunction("LinearNoAbs");
+                actFunct = ActivationFunctionFactory.GetActivationFunction("BipolarSigmoid");
                 //actFunct = ActivationFunctionFactory.GetRandomActivationFunction(neatParameters);
                 //TODO: DAVID proper activation function
                 neuronGene = new NeuronGene(idGenerator.NextInnovationId, NeuronType.Output, actFunct);

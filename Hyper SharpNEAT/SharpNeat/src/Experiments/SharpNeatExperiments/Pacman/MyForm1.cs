@@ -26,12 +26,19 @@ namespace SharpNeatExperiments.Pacman
 
         Point[] points1;
         Point[] points2;
+        Point[] points3;
         Point[] pointsMaster;
+        Point[] pointsMaster2;
+        Point[] pointsMaster3;
         public static List<uint> NeuronsToLightUp;
 
         public static double freq1;
         public static double freq2;
+        public static double freq3;
         public static double freqMaster;
+        public static double freqMaster2;
+        public static double freqMaster3;
+        public static int startLinePos;
 
         public static NeatGenome neatGenome;
         public static INetwork network;
@@ -51,6 +58,7 @@ namespace SharpNeatExperiments.Pacman
             NeuronsToLightUp = new List<uint>();
             Application.ApplicationExit += new EventHandler(closeHandler);
             InitPoints();
+            InitStartLine();
         }
 
         double someSinus1 = 0;
@@ -78,25 +86,61 @@ namespace SharpNeatExperiments.Pacman
             for (int i = 0; i < points2.Length; i++) {
                 points2[i].X = i * 5;
             }
+            points3 = new Point[100];
+            for (int i = 0; i < points3.Length; i++)
+            {
+                points3[i].X = i * 5;
+            }
             pointsMaster = new Point[100];
             for (int i = 0; i < pointsMaster.Length; i++) {
                 pointsMaster[i].X = i * 5;
             }
+            pointsMaster2 = new Point[100];
+            for (int i = 0; i < pointsMaster2.Length; i++)
+            {
+                pointsMaster2[i].X = i * 5;
+            }
+            pointsMaster3 = new Point[100];
+            for (int i = 0; i < pointsMaster3.Length; i++)
+            {
+                pointsMaster3[i].X = i * 5;
+            }
+        }
+        static public void InitStartLine() {
+            startLinePos = 98 * 5;
         }
 
         private void Draw() {
             g.Clear(Color.Black);
-            DrawFreq(freq1, points1, 50, System.Drawing.Color.YellowGreen);
+            DrawFreqBox();
+            DrawStartLine(System.Drawing.Color.Coral);
+            DrawFreq(freq1, points1, 50, System.Drawing.Color.ForestGreen);
             DrawFreq(freq2, points2, 50, System.Drawing.Color.Tomato);
-            DrawFreq(freqMaster, pointsMaster, 50, System.Drawing.Color.WhiteSmoke);
+            DrawFreq(freq3, points3, 50, System.Drawing.Color.Blue);
+            /*DrawFreq(freqMaster, pointsMaster, 50, System.Drawing.Color.Black);
+            DrawFreq(freqMaster2, pointsMaster2, 50, System.Drawing.Color.Blue);
+            DrawFreq(freqMaster3, pointsMaster3, 50, System.Drawing.Color.Purple);*/
             DrawNet();
             Picture.Image = image;
         }
+        
+        void DrawStartLine(System.Drawing.Color color)
+        {
+            startLinePos -= 5;
+            Pen pen = new System.Drawing.Pen(color);
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle(startLinePos, 0, 1, 100);
+            g.DrawRectangle(pen, rectangle);
+        }
 
+        void DrawFreqBox()
+        {
+            System.Drawing.Rectangle rectangleBounds = new System.Drawing.Rectangle(0,0,image.Width,110);
+            g.FillRectangle(new System.Drawing.SolidBrush(System.Drawing.Color.White), rectangleBounds);
+        }
         void DrawFreq(double freq, Point[] points, int yOffset, System.Drawing.Color color) {
             Pen pen = new System.Drawing.Pen(color);
 
-            points[points.Length - 1].Y = (int)(freq * 50 + yOffset);
+            points[points.Length - 1].Y = (int)(-freq * 50 + yOffset);
             for (int i = 0; i < points.Length; i++)
             {
                 if (i < points.Length - 1)

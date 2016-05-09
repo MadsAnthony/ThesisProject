@@ -22,7 +22,7 @@ class SPSUPGSubstrate : Substrate
     public override NeatGenome generateGenome(INetwork network)
     {
         CachedGenome1 = MakeGenome(network, 0);
-        CachedGenome2 = MakeGenome(network, 1);
+        //CachedGenome2 = MakeGenome(network, 1);
         return CachedGenome1;
     }
 
@@ -66,9 +66,10 @@ class SPSUPGSubstrate : Substrate
             QueryConnection(network, connections, connectionCounter++, source, 9, moduleI, newNeurons);*/
 
             // Special Output
-            //QueryConnection(network, connections, connectionCounter++, source, 10, 2, newNeurons);
+            QueryConnection(network, connections, connectionCounter++, source, 10, 2, newNeurons);
         }
-        QueryConnection(network, connections, connectionCounter++, 5, 10, 2, newNeurons);
+        //QueryConnection(network, connections, connectionCounter++, 0, 10, 2, newNeurons);
+        //QueryConnection(network, connections, connectionCounter++, 5, 10, 2, newNeurons);
         // Connection from input to output
         /*QueryConnection(network, connections, connectionCounter++, 5, 6, newNeurons);
         QueryConnection(network, connections, connectionCounter++, 5, 7, newNeurons);*/
