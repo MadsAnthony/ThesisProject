@@ -165,7 +165,29 @@ The enemies have two states: edible and threat (i.e. not edible) and all agents 
 \subsubsection{Sensors}
 All networks have 6 inputs and a minimum of 4 outputs. One input is used for bias. A second input is used for sensing the different task: 1 if enemies are edible and 0 otherwise. The last 4 input is used to sense where the nearest enemy in each direction is located by using the manhattan distance. The distance is clamped between 0 and 100 and divided by 100, so the input span from 0 to 1 - where 0 is close and 1 is far away. The four outputs indicate each direction, and the one output with the highest value is the direction the agent will choose.
 \subsubsection{Results}
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{Results/PreyPredatorResults}
+\caption{}
+\end{figure}
 \subsection{Experiment 3 - Environmental split task (Two Rooms)}
-\subsubsection{Domain}
+As can be seen from the results of the previous experiment, my methods didn't seem to perform very well. One of the reasons could be that the new methods just isn't that good at discovering new modules. Another reason could be that the general setup was flawed and that the previous domain wasn't a good representative for these new methods. To account for this I've decided to change the domain to something which have been used in other multitasking papers.
+\\
+\\
+The two domains I will be using are "Dual Task" and "Two Rooms" as used in the MB-HyperNEAT paper by Schrum.
+\subsubsection{Dual Task}
+The dual task domain was first introduced to evaluate Evolvable-Substrate HyperNEAT[ref] and was later used to evaluate multitasking in MB-HyperNEAT[]. The dual task domain consist of two isolated task: foraging and hallway navigation.
+\\
+\\
+In the foraging task the agent has to visit 4 way points in a specific order.
+\\
+\\
+The hallway navigation.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.4]{DualTaskDomain}
+\caption{}
+\end{figure}
+\subsubsection{Two Rooms}
 \subsubsection{Results}
 \end{document}
