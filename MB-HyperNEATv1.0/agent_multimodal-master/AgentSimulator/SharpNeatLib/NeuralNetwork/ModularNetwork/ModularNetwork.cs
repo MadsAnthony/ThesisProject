@@ -324,6 +324,15 @@ namespace SharpNeatLib.NeuralNetwork
             }
         }
 
+        public float[] supgFreqs;
+        public float masterFreq;
+        public int supgTimer = 0;
+        public void setSupgFreq(float[] inputFactorNeuronList, float inputMasterFreq) {
+            supgTimer++;
+            supgFreqs = inputFactorNeuronList;
+            masterFreq = inputMasterFreq;
+        }
+
         //Apply reward globally and change synaptic weights
 
         public void SingleStep()

@@ -216,7 +216,8 @@ namespace Engine
         {
             int inputs;
 
-            inputs = 4; // Base inputs: x1, y1, x2, y2
+            //inputs = 4; // Base inputs: x1, y1, x2, y2
+            inputs = 5; // SUPG
 
             // Schrum: Z-coordinate input now handled by overridden version of this
             // method in MultiAgentExperiment

@@ -329,6 +329,7 @@ namespace Engine
                 if (drawMode == drawModes.selectMode && selected_robot != null)
                 {
                     NetworkVisualizerForm netForm=null;
+                    SUPGVisualizerForm supgForm = null;
                     if (experiment is MultiAgentExperiment) //if this is a multiagentexperiment use agentBrain class
                     {
                         // Schrum: With preference neurons, all brains need to be displayed
@@ -344,6 +345,10 @@ namespace Engine
                                 netForm = new NetworkVisualizerForm(selected_robot, (ModularNetwork)brain, brainCounter, checkZ); // Schrum: Know which brain is being used
                                 netForm.genomeVisualizerForm = genomeVisualizerForm; 
                                 netForm.Show();
+
+                                supgForm = new SUPGVisualizerForm(selected_robot, (ModularNetwork)brain, brainCounter, checkZ); // Schrum: Know which brain is being used
+                                supgForm.genomeVisualizerForm = genomeVisualizerForm;
+                                supgForm.Show();
                             }
                             return; // Schrum: need to break normal execution flow to avoid netForm being shown again
                         }
@@ -358,6 +363,8 @@ namespace Engine
                                 return; //TODO maybe show dialog
                             }
                             netForm = new NetworkVisualizerForm(selected_robot, (ModularNetwork)brain, brainCounter,checkZ); // Schrum: Know which brain is being used
+
+                            supgForm = new SUPGVisualizerForm(selected_robot, (ModularNetwork)brain, brainCounter, checkZ);
                         }
                     }
                     else 
@@ -367,11 +374,15 @@ namespace Engine
                         int brainCounter = experiment.agentBrain.getBrainCounter(); // Schrum: Added to know which brain is being used
                         bool checkZ = experiment.robots.Count > 1;
                         netForm = new NetworkVisualizerForm(selected_robot, (ModularNetwork)experiment.agentBrain.brain, brainCounter, checkZ); // Schrum: Know which brain is being used
+
+                        supgForm = new SUPGVisualizerForm(selected_robot, (ModularNetwork)experiment.agentBrain.brain, brainCounter, checkZ);
                     }
 
                     netForm.genomeVisualizerForm = genomeVisualizerForm;
                     netForm.Show();
-                  
+
+                    supgForm.genomeVisualizerForm = genomeVisualizerForm;
+                    supgForm.Show();
                    // this.selected_robot.displayPath = !this.selected_robot.displayPath;
                 }
             }

@@ -352,7 +352,10 @@ namespace Engine
                 brain.SetInputSignals(teamInput);
                 brain.MultipleSteps(NET_ACTIVATION_STEPS);
                 var masterFreq = brain.GetOutputSignal(3);
-                getSUPGOutput(masterFreq);
+                setSUPGOutput(masterFreq);
+                brain.SetInputSignals(teamInput);
+                brain.MultipleSteps(NET_ACTIVATION_STEPS);
+
 
                 int out_count = 0;
                 int numOutputAgent = brain.OutputNeuronCount / numRobots;
@@ -420,12 +423,13 @@ namespace Engine
             return (input2 < input1 + threshold && input2 > input1 - threshold);
         }
 
-        float getSUPGOutput(float masterFreq) {
+        float setSUPGOutput(float masterFreq) {
             timer++;
             if (timer > wavelength) {
                 timer = 0;
             }
             var tmpHiddenFactorList = new List<float>();
+            var tmpSupgOutputs = new List<float>();
             foreach (var ng in substrateDescription.neuronGroups) {
                 if (ng.GroupType == 2) {
                     foreach (var point in ng.NeuronPositions) {
@@ -434,18 +438,19 @@ namespace Engine
                         genome.SetInputSignal(1, point.Y);
                         genome.SetInputSignal(2, 0);
                         genome.SetInputSignal(3, 0);
-                        genome.SetInputSignal(4, (float)timer/wavelength);
+                        genome.SetInputSignal(4, (float)timer/wavelength); // timer
                         genome.MultipleSteps(10);
 
                         var supgOut = genome.GetOutputSignal(2);
-                        var res = IsWithinThreshold(supgOut,masterFreq,0.2f)? 0:1;
+                        var res = IsWithinThreshold(supgOut,masterFreq,0.2f)? 1:0;
                         tmpHiddenFactorList.Add(res);
+                        tmpSupgOutputs.Add(supgOut);
                     }
                 }
             }
             //tmpHiddenFactorList.ToArray().Length;
             ((ModularNetwork)brain).OverrideHiddenFactorNeuron(tmpHiddenFactorList.ToArray());
-
+            ((ModularNetwork)brain).setSupgFreq(tmpSupgOutputs.ToArray(),masterFreq);
             //Console.WriteLine(coord[0] + "x " + coord[1] + "y");
 
             return 0;//genome.GetOutputSignal(3);
