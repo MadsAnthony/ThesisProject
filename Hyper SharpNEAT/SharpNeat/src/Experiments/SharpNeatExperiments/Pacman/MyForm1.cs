@@ -52,7 +52,7 @@ namespace SharpNeatExperiments.Pacman
 
 
             int myData = 0; // dummy data
-            tickHandler = new TimerEventHandler(tick);
+            //tickHandler = new TimerEventHandler(tick);
             fastTimer = timeSetEvent(50, 50, tickHandler, ref myData, 1);
 
             NeuronsToLightUp = new List<uint>();

@@ -40,12 +40,12 @@ namespace PacmanAINeural
             foreach (var enemy in gameState.enemies) {
                 if (IsWithinThreshold(enemy.pos, pos, 5) && !enemy.isSleeping && !enemy.isGettingReady) {
                     if (enemy.isEdible) {
-                        //gameState.score += 1;
+                        gameState.score += 1;
                         gameState.eatScore += 1;
                     } else {
                         //gameState.CloseGame();
                         //gameState.timer = gameState.timeOut;
-                        //gameState.score -= 1;
+                        gameState.score -= 1;
                         gameState.lifeScore -= 1;
                     }
                     enemy.Sleep();

@@ -103,7 +103,7 @@ namespace SharpNeatLib.Experiments
 
                 visualizerThread = new System.Threading.Thread(delegate()
                 {
-                    bool fastNoDraw = false;
+                    bool fastNoDraw = true;
                     simplePacman = new SharpNeatExperiments.Pacman.SimplePacman(simplePacmanController, fastNoDraw, new Random(i));
                     if (!fastNoDraw) {
                         System.Windows.Forms.Application.Run(simplePacman);
