@@ -26,11 +26,11 @@ namespace SharpNeatExperiments.Pacman
         public int height;
         int zoom = 4;
 
-        public int timeOut = 100;//5000;
+        public int timeOut = 5000;
         public int timer = 0;
         int switchTime = 200;
         int taskTimer = 0;
-        public float score = 10;//1000;
+        public float score = 1000;//1000;
         public int eatScore = 0;
         public int lifeScore = 1000;
         public PacmanAINeural.SimplePacmanController controller;
