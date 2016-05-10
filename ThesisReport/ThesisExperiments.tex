@@ -65,7 +65,11 @@ With the use of FM modification, you could imagine the master frequency oscillat
 \includegraphics[scale=0.4]{Images/MasterFrequencyModulation}
 \caption{}
 \end{figure}
-\subsubsection{Comparing functions}
+\subsubsection{Comparing SUPG frequencies with Master Frequency}
+Another important part of MiO-HyperNEAT is the comparison that take place between the SUPG frequencies and the Master frequency. It seems likely that picking the right comparison measure is vital for MiO-HyperNEAET to succeed. Therefore I will in the following presents some methods that could be used to compare frequencies, and argue for my choice of comparison.
+\\
+\\
+One simple comparison measure is to use the latest signal value from both frequencies and only enable the hidden neuron if they both lie within a certain threshold.
 \subsection{Experiment 1 - Recognizing oscillations}
 Before testing how the new methods perform at  multitasking, I first want to focus on the SUPG part and test how good it is at recognizing oscillations. To do this I give it a sample of predetermined functions that the SUPG then has to try and replicate.
 \\
@@ -164,7 +168,10 @@ However since the SUPG will be used to generate multiple frequencies (depending 
    \hline
     \end{tabular}
 \end{center}
-The number of generations was increased to 800, since it took more time for the results to stagnate. I also ran the evolution for each function up to five times, and only showcased the best. The reason for this, is that it sometimes will get stuck in a local optima, and wouldn't improve significantly enough.
+The number of generations was increased to 800, since it took more time for the results to stagnate. I also ran the evolution for each function up to five times, and only showcased the best. The reason for this, is that it sometimes will get stuck in a local optima, and wouldn't improve significantly enough. I only showed the best results, since the motivation for this experiment is to get intuition of how good the SUPG is at recognizing oscillations in the best case.
+\\
+\\
+As can be seen from the results, the SUPG has a harder time replicating multiple functions compared to replicating single functions. However I still think the results here is pretty good, as it's still possible to tell the different frequencies apart.
 \subsection{Experiment 2 - Timely split task (Prey-Predator)}
 Now that I've tested how good the SUPG is at recognizing different oscillations, it's time to test how well the two new methods perform on an actual problem that requires multitasking. To do this I've come up with a simple domain that has a very clear split between two different task. The domain is inspired by pac-man and consist of two task, one where the agent is a prey and another where it is the predator. A detailed explanation of the domain and the sensors is given in the beginning of this section, and is then followed by the results of each method. 
 \subsubsection{Prey-Predator Domain}
@@ -183,11 +190,14 @@ The enemies have two states: edible and threat (i.e. not edible) and all agents 
 \subsubsection{Sensors}
 All networks have 6 inputs and a minimum of 4 outputs. One input is used for bias. A second input is used for sensing the different task: 1 if enemies are edible and 0 otherwise. The last 4 input is used to sense where the nearest enemy in each direction is located by using the manhattan distance. The distance is clamped between 0 and 100 and divided by 100, so the input span from 0 to 1 - where 0 is close and 1 is far away. The four outputs indicate each direction, and the one output with the highest value is the direction the agent will choose.
 \subsubsection{Results}
+Since the random spawning position in the domain is likely to make the results noisy, I will be using a fixed seed for all of the evaluations. Each method used 65 generations, and was run for x times in total. The mean and 95\% percentile for each method are shown in the following graph.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{Results/PreyPredatorResults}
 \caption{}
 \end{figure}
+\\
+As can be seen from the results there is a clear split between the method using two modules(2M) and the method using one method(1M). This result suggest that the domain is capable to be used as an example for multimodal behaviors. However my new methods (MiO-HyperNEAT) just don't seem to discover these new modules or at least not in a meaningful and measurable way.
 \subsection{Experiment 3 - Environmental split task (Two Rooms)}
 As can be seen from the results of the previous experiment, my methods didn't seem to perform very well. One of the reasons could be that the new methods just isn't that good at discovering new modules. Another reason could be that the general setup was flawed and that the previous domain wasn't a good representative for these new methods. To account for this I've decided to change the domain to something which have been used in other multitasking papers.
 \\
