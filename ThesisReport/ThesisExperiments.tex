@@ -48,6 +48,24 @@ Since the total number of ways the hidden neurons can be active/disabled is $ 2^
 \end{figure}
 \\
 \subsubsection{MaO-HyperNEAT}
+-
+\subsubsection{Modifying the master frequency}
+An important part of MiO-HyperNEAT is its ability to generate a master frequency. The idea for the master frequency is that it should produce some frequency that is unique for each task. What these frequency looks like is not really important, as long as the SUPG's are able to generate frequencies that matches them.
+\\
+\\
+However, this approach makes the assumption that the master frequency is able to generate some underlying temporal structure that is unique for each task. Although this would be ideal, it might not always be the case. So to account for this, I introduce some modifications to the master frequency. These modifications are used as an alternative to the original MiO-HyperNEAT method, and are introduced to rule out problems that could exist using the master frequency. This is done by enhancing the temporal structure in the master frequency.
+\\
+\\
+To enhance the temporal structure in the master frequency I choose to modulate the substrate output onto a carrier wave by using frequency- or amplitude modulation (FM/AM). I then define the carrier wave as  a sine wave $ sin(2 \cdot \pi \cdot x) $ and use the substrate output to change the frequency/amplitude of the carrier wave, as shown in figure (x).
+\\
+\\
+With the use of FM modification, you could imagine the master frequency oscillating at a lower (alpha) frequency during one task and at a higher (beta) frequency during another task. This further strengthen the analogy to the previous research [ref].
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.4]{Images/MasterFrequencyModulation}
+\caption{}
+\end{figure}
+\subsubsection{Comparing functions}
 \subsection{Experiment 1 - Recognizing oscillations}
 Before testing how the new methods perform at  multitasking, I first want to focus on the SUPG part and test how good it is at recognizing oscillations. To do this I give it a sample of predetermined functions that the SUPG then has to try and replicate.
 \\
