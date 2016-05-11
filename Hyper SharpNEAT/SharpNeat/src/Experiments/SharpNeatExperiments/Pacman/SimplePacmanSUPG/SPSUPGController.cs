@@ -54,8 +54,7 @@ namespace PacmanAINeural
                 timer = 0;
             }
 
-            /*
-            var tempGenome = Substrate.CachedGenome1;
+            /*var tempGenome = Substrate.CachedGenome1;
             var tempNet = tempGenome.Decode(null);
             brain = tempNet;
             FeedInput();
@@ -80,21 +79,19 @@ namespace PacmanAINeural
 
             ((FloatFastConcurrentNetwork)brain).OverrideSignals = overrideSignals;
             SharpNeatExperiments.Pacman.MyForm1.OverrideSignals = overrideSignals;
-            var neuron = genome.NeuronGeneList[10];
-            */
+            var neuron = genome.NeuronGeneList[10];*/
 
             // USE for 2M
 
-            brain = (Substrate.CachedGenome1).Decode(null);
+            /*brain = (Substrate.CachedGenome1).Decode(null);
             FeedInput();
             var pref1 = brain.GetOutputSignal(4);
 
             brain = (Substrate.CachedGenome2).Decode(null);
             FeedInput();
-            var pref2 = brain.GetOutputSignal(4);
-
-            if (pref1>pref2/*gameState.enemies[0].isEdible*/)
-            {
+            var pref2 = brain.GetOutputSignal(4);*/
+            //brain = (Substrate.CachedGenome1).Decode(null);
+            if (/*pref1>pref2*/gameState.enemies[0].isEdible) {
                 brain = (Substrate.CachedGenome1).Decode(null);
             } else {
                 brain = (Substrate.CachedGenome2).Decode(null);
@@ -131,10 +128,11 @@ namespace PacmanAINeural
         void FeedInput() {
             brain.ClearSignals();
             brain.SetInputSignal(0, 1); // bias
-            brain.SetInputSignal(1, Math.Min(GetClosestEnemies2(Direction.Up)[0], 100) / 100f);
-            brain.SetInputSignal(2, Math.Min(GetClosestEnemies2(Direction.Down)[0], 100) / 100f);
-            brain.SetInputSignal(3, Math.Min(GetClosestEnemies2(Direction.Right)[0], 100) / 100f);
-            brain.SetInputSignal(4, Math.Min(GetClosestEnemies2(Direction.Left)[0], 100) / 100f);
+            float clampDist = 40f;
+            brain.SetInputSignal(1, Math.Min(GetClosestEnemies2(Direction.Up)[0], clampDist) / clampDist);
+            brain.SetInputSignal(2, Math.Min(GetClosestEnemies2(Direction.Down)[0], clampDist) / clampDist);
+            brain.SetInputSignal(3, Math.Min(GetClosestEnemies2(Direction.Right)[0], clampDist) / clampDist);
+            brain.SetInputSignal(4, Math.Min(GetClosestEnemies2(Direction.Left)[0], clampDist) / clampDist);
             brain.SetInputSignal(5, gameState.enemies[0].isEdible ? 1 : 0);
             brain.MultipleSteps(4);
         }

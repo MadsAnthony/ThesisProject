@@ -22,7 +22,7 @@ class SPSUPGSubstrate : Substrate
     public override NeatGenome generateGenome(INetwork network)
     {
         CachedGenome1 = MakeGenome(network, 0);
-        CachedGenome2 = MakeGenome(network, 3);
+        CachedGenome2 = MakeGenome(network, 2);
         return CachedGenome1;
     }
 
@@ -66,7 +66,7 @@ class SPSUPGSubstrate : Substrate
             QueryConnection(network, connections, connectionCounter++, source, 9, moduleI, newNeurons);*/
 
             // Special Output
-            QueryConnection(network, connections, connectionCounter++, source, 10, moduleI+2, newNeurons);
+            //QueryConnection(network, connections, connectionCounter++, source, 10, moduleI+2, newNeurons);
         }
         //QueryConnection(network, connections, connectionCounter++, 0, 10, 2, newNeurons);
         //QueryConnection(network, connections, connectionCounter++, 5, 10, 2, newNeurons);
@@ -83,7 +83,7 @@ class SPSUPGSubstrate : Substrate
             QueryConnection(network, connections, connectionCounter++, tmpSource, 9, moduleI, newNeurons);
 
             // Special Output
-            QueryConnection(network, connections, connectionCounter++, tmpSource, 10, moduleI + 2, newNeurons);
+            //QueryConnection(network, connections, connectionCounter++, tmpSource, 10, moduleI + 2, newNeurons);
         }
         return new SharpNeatLib.NeatGenome.NeatGenome(0, newNeurons, connections, (int)inputCount, (int)outputCount);
     }

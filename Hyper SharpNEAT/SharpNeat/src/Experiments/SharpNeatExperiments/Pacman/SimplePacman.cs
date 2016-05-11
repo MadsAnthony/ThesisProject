@@ -24,11 +24,12 @@ namespace SharpNeatExperiments.Pacman
         private static Keys[] key_props;
         public int width;
         public int height;
-        int zoom = 4;
+        public int zoom = 16;
 
-        public int timeOut = 5000;
+        public int timeOut = 1000;
         public int timer = 0;
-        int switchTime = 200;
+        int switchTime = 50;
+        int cooldownTime = 2;
         int taskTimer = 0;
         public float score = 1000;//1000;
         public int eatScore = 0;
@@ -112,7 +113,7 @@ namespace SharpNeatExperiments.Pacman
                     //int myData = 0;
                     //myTick(true);
                     //tick(0, 0, ref myData, 0, 0);
-                    Thread.Sleep(20);
+                    Thread.Sleep(50);
                 }
                 closingStuff();
                 CloseGame();
@@ -223,7 +224,7 @@ namespace SharpNeatExperiments.Pacman
                 }
                 //taskTimer = 0;
             }
-            if (taskTimer > switchTime+10)
+            if (taskTimer > switchTime+cooldownTime)
             {
                 foreach (var enemy in enemies)
                 {

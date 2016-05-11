@@ -38,7 +38,7 @@ namespace PacmanAINeural
 
         public void CheckForHit() {
             foreach (var enemy in gameState.enemies) {
-                if (IsWithinThreshold(enemy.pos, pos, 5) && !enemy.isSleeping && !enemy.isGettingReady) {
+                if (IsWithinThreshold(enemy.pos, pos, /*5*((float)4/gameState.zoom)*/2) && !enemy.isSleeping && !enemy.isGettingReady) {
                     if (enemy.isEdible) {
                         gameState.score += 1;
                         gameState.eatScore += 1;
